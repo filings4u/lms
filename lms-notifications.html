@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 
-<!DOCTYPE html>
-
 <html lang="en">
 <head>
+<link crossorigin="" href="https://elpbnytpciqnbexiaebp.supabase.co" rel="preconnect"/>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<meta content="noindex,nofollow,noarchive,nosnippet,noimageindex" name="robots"/>
+<meta content="noindex,nofollow,noarchive,nosnippet,noimageindex" name="googlebot"/>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="#24467f" name="theme-color"/>
-<title>Notifications | screenings4u Learning Center</title>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#102f55" name="theme-color"/>
 <link href="images/fav.png" rel="icon" type="image/png"/>
-<link href="assets/css/lms-notifications.css" rel="stylesheet"/></head>
-<body class="lms-notifications-page lms-reference-redesign s4u-lms-redesign">
-<main class="lms-main">
-<div class="lms-notifications-content">
-<section class="lms-notifications-intro"><div><span class="lms-notifications-eyebrow">LEARNING ACTIVITY</span><h1>Notifications</h1><p>Important updates about your courses, assessments, certificates, support conversations, and Training account will appear here.</p></div><div class="lms-notifications-actions"><button class="lms-notifications-mark-all" id="mark-all-read" type="button"><svg viewbox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg>Mark All Read</button><button aria-label="Refresh notifications" class="lms-notifications-refresh" id="notifications-refresh" type="button"><svg viewbox="0 0 24 24"><path d="M20 11a8 8 0 1 0 2 5"></path><path d="M20 4v7h-7"></path></svg></button></div></section>
-<section class="lms-notifications-summary"><button class="lms-notification-stat active" data-notification-filter="all" type="button"><span id="notifications-total">0</span><small>All Notifications</small></button><button class="lms-notification-stat" data-notification-filter="unread" type="button"><span id="notifications-unread">0</span><small>Unread</small></button><button class="lms-notification-stat" data-notification-filter="courses" type="button"><span id="notifications-courses">0</span><small>Course Updates</small></button><button class="lms-notification-stat" data-notification-filter="account" type="button"><span id="notifications-account">0</span><small>Account Updates</small></button></section>
-<section class="lms-notifications-panel"><div class="lms-notifications-panel-heading"><div><h2>Recent Notifications</h2><p id="notifications-result-count"></p></div><select id="notifications-type-filter"><option value="all">All Types</option><option value="courses">Courses</option><option value="assessments">Assessments</option><option value="certificates">Certificates</option><option value="support">Support / Messages</option><option value="account">Account</option></select></div><div class="lms-notifications-loading" id="notifications-loading"><div class="lms-notifications-spinner"></div><div><strong>Loading notifications</strong><span></span></div></div><div class="lms-notifications-list" hidden="" id="notifications-list"></div><div class="lms-notifications-empty" hidden="" id="notifications-empty"><div class="lms-notifications-empty-icon"><svg viewbox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path><path d="M10 21h4"></path></svg></div><h3>No notifications right now</h3><p>When there are important updates about your courses, assessments, certificates, support messages, or Training account, they will appear here.</p></div></section>
-<section class="lms-notifications-help"><div class="lms-notifications-help-icon"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 4.2 1.8c-1.2 1.1-1.7 1.6-1.7 3.2M12 17h.01"></path></svg></div><div><strong>Need help with an update?</strong><p>Open Training Support to review conversations or reply when a message requires a response.</p></div><a href="lms-support.html">Training Support</a></section>
-</div>
-</main>
+<title>Notifications | screenings4u Learning Center</title>
+<link href="assets/css/lms-portal.css?v=20261004-training1" rel="stylesheet"/>
+<link href="assets/css/lms-notifications.css?v=20261004-training5" rel="stylesheet"/>
+<link href="assets/css/lms-mobile.css?v=20261004-mobile1" rel="stylesheet"/></head>
+<body data-portal-page="notifications">
+<noscript>This portal requires JavaScript.</noscript>
+<div id="trainingPortalApp"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/js/lms-notifications.js"></script></body>
+<script src="assets/js/lms-notifications.js?v=20261004-training5"></script>
+</body>
 </html>

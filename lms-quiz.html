@@ -1,33 +1,65 @@
 <!DOCTYPE html>
 
-<!DOCTYPE html>
-
 <html lang="en">
-<head>
+<head><meta content="noindex,nofollow,noarchive,nosnippet,noimageindex" name="googlebot"/><meta content="noindex,nofollow,noarchive,nosnippet,noimageindex" name="robots"/>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <title>Knowledge Check | screenings4u Learning Center</title>
+<meta content="#173f78" name="theme-color"/>
 <link href="images/fav.png" rel="icon" type="image/png"/>
-<meta content="#24467f" name="theme-color"/>
-<link href="assets/css/lms-quiz.css" rel="stylesheet"/></head>
-<body class="lms-reference-redesign s4u-lms-redesign">
-
-<main class="lms-main">
-<div class="lms-content quiz-page">
-<nav aria-label="Breadcrumb" class="quiz-breadcrumb"><a href="lms-my-courses.html">My Learning</a><svg viewbox="0 0 24 24"><path d="m9 18 6-6-6-6"></path></svg><a href="lms-course-player.html" id="coursePlayerLink">Course Player</a><svg viewbox="0 0 24 24"><path d="m9 18 6-6-6-6"></path></svg><span id="breadcrumbTitle">Knowledge Check</span></nav>
-<div class="quiz-layout">
-<section class="quiz-card" id="quizCard">
-<div class="quiz-header"><div class="quiz-kicker"><i></i><span id="quizType">Module Knowledge Check</span></div><h1 id="quizTitle">Module Quiz</h1><p id="quizDescription">Complete this knowledge check before continuing to the next course module.</p></div>
-<div class="quiz-progress"><div class="quiz-progress-row"><span id="progressLabel">Question 1 of 5</span><strong id="progressPercent">20%</strong></div><div class="quiz-track"><div class="quiz-fill" id="quizFill"></div></div></div>
-<div class="quiz-question" id="questionPanel"></div>
+<link href="assets/css/lms-quiz.css?v=20261004-training3" rel="stylesheet"/>
+<link href="assets/css/lms-mobile.css?v=20261004-mobile1" rel="stylesheet"/></head>
+<body>
+<header class="quiz-topbar">
+<a aria-label="screenings4u Learning Center dashboard" class="quiz-brand" href="lms-dashboard.html">
+<img alt="screenings4u Learning Center" src="images/training-logo2.png"/>
+</a>
+<div class="quiz-topbar-copy">
+<span>SCREENINGS4U LEARNING CENTER</span>
+<strong id="topbarTitle">Knowledge Check</strong>
+</div>
+<a class="quiz-exit" href="lms-course-player.html" id="coursePlayerLink">Return to Course</a>
+</header>
+<main class="quiz-page">
+<section class="quiz-hero">
+<div>
+<span class="quiz-eyebrow" id="quizType">MODULE KNOWLEDGE CHECK</span>
+<h1 id="quizTitle"></h1>
+<p id="quizDescription"></p>
+</div>
+<div aria-label="Quiz progress" class="quiz-hero-progress">
+<div class="quiz-progress-row">
+<span id="progressLabel"></span>
+<strong id="progressPercent"></strong>
+</div>
+<div class="quiz-track"><div class="quiz-fill" id="quizFill"></div></div>
+</div>
 </section>
-<aside>
-<section class="quiz-side"><div class="side-section"><h3 id="sideTitle">Module Quiz</h3><p id="sideDescription">Your answers are saved while you move between questions.</p></div><div class="side-section"><div class="side-stat"><span>Questions</span><strong id="questionCount">5</strong></div><div class="side-stat"><span id="passingLabel">Required Score</span><strong id="passingScore">80%</strong></div><div class="side-stat"><span>Attempts</span><strong id="attempts">—</strong></div></div><div class="side-section"><h3>Questions</h3><div class="question-list" id="questionList"></div></div></section>
-<section class="quiz-side" style="margin-top:18px"><div class="side-section"><h3>Need to review?</h3><p>You can return to the course content before submitting your answers.</p><div class="hint-box"><strong>Remember</strong>Module quizzes check your understanding before you continue. The final assessment is completed after the entire course.</div></div></section>
+<div class="quiz-layout">
+<section aria-live="polite" class="quiz-card">
+<div id="questionPanel"></div>
+</section>
+<aside class="quiz-sidebar">
+<section class="quiz-side-card">
+<h2 id="sideTitle"></h2>
+<p id="sideDescription"></p>
+<dl class="quiz-stats">
+<div><dt>Questions</dt><dd id="questionCount"></dd></div>
+<div><dt id="passingLabel">Required Score</dt><dd id="passingScore"></dd></div>
+<div><dt>Attempts</dt><dd id="attempts"></dd></div>
+</dl>
+</section>
+<section class="quiz-side-card" id="questionNavigationCard">
+<div class="quiz-side-heading">
+<h2>Questions</h2>
+<span>Jump to a question</span>
+</div>
+<div class="question-list" id="questionList"></div>
+</section>
 </aside>
 </div>
-</div>
 </main>
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/js/lms-quiz.js"></script></body></html>
+<script src="assets/js/lms-quiz.js?v=20261004-training3"></script>
+</body>
+</html>

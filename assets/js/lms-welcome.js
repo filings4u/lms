@@ -1038,7 +1038,7 @@
     if(n.startsWith('customer-')) return 'customer';
     if(n.startsWith('employer-')) return 'employer';
     if(n.startsWith('employee-')) return 'employee';
-    if(n.includes('course')||n.includes('lesson')||n.includes('training')||location.hostname==='training.screenings4u.com') return 'training';
+    if(n.includes('course')||n.includes('lesson')||n.includes('training')||(location.hostname==='lms.screenings4u.com'||location.hostname==='training.screenings4u.com')) return 'training';
     return '';
   }
   function storage(){try{return localStorage}catch{return sessionStorage}}
@@ -1048,7 +1048,7 @@
   function removeWarning(){document.getElementById(WARNING_ID)?.remove()}
   function loginPage(){
     const p=portal();
-    return window.S4UAuth?.getLoginForPortal?.(p) || (p==='training'?'https://training.screenings4u.com/training-login.html':`${p||'customer'}-login.html`);
+    return window.S4UAuth?.getLoginForPortal?.(p) || (p==='training'?'https://lms.screenings4u.com/training-login.html':`${p||'customer'}-login.html`);
   }
   async function signOut(){
     if(signingOut) return; signingOut=true; clearTimers(); removeWarning();

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+
+# Private authenticated Learning Center.
+# Search indexing is also blocked by page-level noindex directives.

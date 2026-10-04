@@ -1,113 +1,22 @@
 <!DOCTYPE html>
 
-<html class="s4u-auth-pending" lang="en">
+<html lang="en">
 <head>
+<link crossorigin="" href="https://elpbnytpciqnbexiaebp.supabase.co" rel="preconnect"/>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<meta content="noindex,nofollow,noarchive,nosnippet,noimageindex" name="robots"/>
+<meta content="noindex,nofollow,noarchive,nosnippet,noimageindex" name="googlebot"/>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="#24467f" name="theme-color"/>
-<title>My Learning | screenings4u Learning Center</title>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#102f55" name="theme-color"/>
 <link href="images/fav.png" rel="icon" type="image/png"/>
-<!-- My Learning redesign -->
-<link href="assets/css/lms-my-courses.css" rel="stylesheet"/></head>
-<body class="lms-my-courses-page" data-s4u-portal="training">
-
-<main class="lms-main">
-<div class="lms-content my-learning-page">
-<nav aria-label="Breadcrumb" class="my-learning-breadcrumb">
-<a href="lms-dashboard.html">Home</a>
-<svg aria-hidden="true" viewbox="0 0 24 24"><path d="m9 18 6-6-6-6"></path></svg>
-<span>My Learning</span>
-</nav>
-<section class="my-learning-hero">
-<div class="my-learning-hero-copy">
-<span class="my-learning-kicker">Screenings4u Learning Center</span>
-<h1>My Learning</h1>
-<p>
-              Continue assigned training, review your active courses, and keep your
-              progress moving toward completion.
-            </p>
-</div>
-<div aria-hidden="true" class="my-learning-hero-mark">
-<svg viewbox="0 0 64 64">
-<path d="M14 18.5 32 10l18 8.5L32 27z"></path>
-<path d="M20 24v14c0 5 5.4 9 12 9s12-4 12-9V24"></path>
-<path d="M50 20v16"></path>
-</svg>
-</div>
-</section>
-<section class="my-learning-section my-learning-continue-section">
-<div class="my-learning-section-head">
-<div>
-<span class="my-learning-section-eyebrow">Resume training</span>
-<h2 class="my-learning-section-title">Continue Learning</h2>
-<p class="my-learning-section-copy">Pick up from your most recent active course.</p>
-</div>
-</div>
-<article aria-live="polite" class="continue-course-card" id="my-learning-continue-card">
-<div class="continue-course-visual">
-<div class="continue-course-visual-content">
-<div class="continue-course-category">Your training</div>
-<div class="continue-course-visual-title">Loading your active course…</div>
-</div>
-</div>
-<div class="continue-course-body">
-<div class="continue-course-top">
-<span class="continue-course-status">
-<span class="continue-course-status-dot"></span>
-                  Loading
-                </span>
-</div>
-<h2>Your learning dashboard is loading.</h2>
-<p>Your active course and progress will appear here automatically.</p>
-</div>
-</article>
-</section>
-<section class="my-learning-section">
-<div class="my-learning-section-head">
-<div>
-<span class="my-learning-section-eyebrow">Your library</span>
-<h2 class="my-learning-section-title">My Courses</h2>
-<p class="my-learning-section-copy">All courses currently assigned to this learner account.</p>
-</div>
-<a class="my-learning-browse-link" href="lms-courses.html">
-              Browse Course Library
-              <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
-</a>
-</div>
-<div aria-live="polite" class="my-courses-grid" id="my-learning-course-grid">
-<article class="my-course-card my-course-card-loading">
-<div class="my-course-card-top">
-<span class="my-course-card-top-label">Loading</span>
-</div>
-<div class="my-course-card-body">
-<span class="my-course-card-status">Loading course</span>
-<h3>Your courses are loading…</h3>
-<p>Course information will appear here in a moment.</p>
-</div>
-</article>
-</div>
-</section>
-<section class="my-learning-section">
-<div class="training-library-cta">
-<div aria-hidden="true" class="training-library-icon">
-<svg viewbox="0 0 24 24">
-<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"></path>
-<path d="M4 5.5v16"></path>
-<path d="M8 7h8"></path>
-</svg>
-</div>
-<div class="training-library-copy">
-<span class="my-learning-section-eyebrow">Additional training</span>
-<h2>Need another course?</h2>
-<p>Browse available Screenings4u training and add new learning to your account.</p>
-</div>
-<a class="training-library-button" href="lms-courses.html">Browse Courses</a>
-</div>
-</section>
-</div>
-</main>
-
-<!-- Authenticated LMS stack -->
+<title>My Courses | screenings4u Learning Center</title>
+<link href="assets/css/lms-portal.css?v=20261004-training1" rel="stylesheet"/>
+<link href="assets/css/lms-mobile.css?v=20261004-mobile1" rel="stylesheet"/></head>
+<body data-portal-page="my-courses">
+<noscript>This portal requires JavaScript.</noscript>
+<div id="trainingPortalApp"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/js/lms-my-courses.js"></script></body>
+<script src="assets/js/lms-my-courses.js?v=20261004-training3"></script>
+</body>
 </html>

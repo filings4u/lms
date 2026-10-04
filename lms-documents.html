@@ -1,136 +1,23 @@
 <!DOCTYPE html>
 
-<html class="s4u-auth-pending" lang="en">
+<html lang="en">
 <head>
+<link crossorigin="" href="https://elpbnytpciqnbexiaebp.supabase.co" rel="preconnect"/>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<meta content="noindex,nofollow,noarchive,nosnippet,noimageindex" name="robots"/>
+<meta content="noindex,nofollow,noarchive,nosnippet,noimageindex" name="googlebot"/>
 <meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
-<meta content="#24467f" name="theme-color"/>
-<title>Documents | screenings4u Learning Center</title>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#102f55" name="theme-color"/>
 <link href="images/fav.png" rel="icon" type="image/png"/>
-<!-- Documents page only -->
-<link href="assets/css/lms-documents.css" rel="stylesheet"/></head>
-<body class="lms-reference-redesign s4u-lms-redesign lms-documents-page" data-s4u-portal="training">
-
-<main class="lms-main">
-<!-- SAME branded LMS topbar used by the dashboard -->
-<div class="documents-content">
-<nav aria-label="Breadcrumb" class="documents-breadcrumb">
-<a href="lms-dashboard.html">Home</a>
-<span aria-hidden="true">›</span>
-<span>Documents</span>
-</nav>
-<section aria-labelledby="documentsTitle" class="documents-hero">
-<div class="documents-hero-copy">
-<div class="documents-eyebrow">SCREENINGS4U LEARNING CENTER</div>
-<h1 id="documentsTitle">Documents</h1>
-<p>Download your Learning Center documents and submit completed DOT mock-training documentation for review.</p>
-</div>
-<div aria-label="Documents on file" class="documents-hero-summary">
-<div aria-hidden="true" class="documents-hero-icon">
-<svg viewbox="0 0 24 24">
-<path d="M7 3h7l4 4v14H7z"></path>
-<path d="M14 3v5h5"></path>
-<path d="M10 13h5"></path>
-<path d="M10 17h5"></path>
-</svg>
-</div>
-<div>
-<span>DOCUMENTS ON FILE</span>
-<strong id="documentsCount">—</strong>
-<small id="documentsSummaryText">Your Learning Center files</small>
-</div>
-</div>
-</section>
-<div aria-live="polite" class="documents-message" hidden="" id="documentsMessage"></div>
-<section aria-labelledby="uploadHeading" class="documents-card documents-upload-card">
-<header class="documents-card-head">
-<div>
-<div class="documents-section-kicker">UPLOAD DOCUMENTS</div>
-<h2 id="uploadHeading">DOT Mock Training Documents</h2>
-<p>After completing your five required DOT mock collection sessions, submit the supporting documentation here for administrator review.</p>
-</div>
-</header>
-<div class="documents-upload-row">
-<div class="documents-course-block">
-<label for="enrollment">Training course</label>
-<select class="docs-select" id="enrollment">
-<option value="">Loading your courses…</option>
-</select>
-<p>Select the enrollment these mock-training documents belong to.</p>
-</div>
-<div class="documents-file-block">
-<label>Supporting files</label>
-<div aria-controls="mockFile" class="docs-dropzone" id="mockDropzone" role="button" tabindex="0">
-<div aria-hidden="true" class="docs-dropzone-icon">
-<svg viewbox="0 0 24 24">
-<path d="M12 16V4"></path>
-<path d="m7 9 5-5 5 5"></path>
-<path d="M5 20h14"></path>
-</svg>
-</div>
-<div class="docs-dropzone-copy">
-<strong>Choose files or drag them here</strong>
-<span>PDF, Word, JPG, PNG, or WebP · up to 25 MB each</span>
-</div>
-</div>
-<input accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp" class="docs-file docs-file-hidden" id="mockFile" multiple="" type="file"/>
-<div aria-live="polite" class="docs-selected-files" id="selectedFiles"></div>
-</div>
-<div class="documents-upload-action">
-<div class="documents-review-note">
-<strong>Ready for review</strong>
-<span>Administrators are notified automatically after a successful upload.</span>
-</div>
-<button class="documents-primary-button" id="uploadBtn" type="button">Upload for Review</button>
-<div class="notice" hidden="" id="uploadStatus"></div>
-</div>
-</div>
-</section>
-<section aria-labelledby="documentsListHeading" class="documents-card documents-library-card">
-<header class="documents-card-head documents-list-head">
-<div>
-<div class="documents-section-kicker">DOCUMENT HISTORY</div>
-<h2 id="documentsListHeading">Your Documents</h2>
-<p>Learning Center acknowledgments and submitted training documents appear here.</p>
-</div>
-<label class="documents-search">
-<span class="sr-only">Search documents</span>
-<svg aria-hidden="true" viewbox="0 0 24 24">
-<circle cx="11" cy="11" r="6"></circle>
-<path d="m20 20-4-4"></path>
-</svg>
-<input autocomplete="off" id="documentsSearch" placeholder="Search documents..." type="search"/>
-</label>
-</header>
-<div class="documents-table-wrap">
-<table class="docs-table">
-<thead>
-<tr>
-<th>Document</th>
-<th>Type</th>
-<th>Status</th>
-<th>Date</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody id="docsBody">
-<tr class="documents-loading-row">
-<td colspan="5">
-<div class="documents-loading">
-<span aria-hidden="true" class="documents-spinner"></span>
-<span>Loading your documents…</span>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-</div>
-</main>
-
+<title>Documents | screenings4u Learning Center</title>
+<link href="assets/css/lms-portal.css?v=20261004-training1" rel="stylesheet"/>
+<link href="assets/css/lms-documents.css?v=20261004-training5" rel="stylesheet"/>
+<link href="assets/css/lms-mobile.css?v=20261004-mobile1" rel="stylesheet"/></head>
+<body data-portal-page="documents">
+<noscript>This portal requires JavaScript.</noscript>
+<div id="trainingPortalApp"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<!-- Shared Learning Center behavior: same auth/nav/header/user menu as dashboard -->
-<!-- Documents page functionality -->
-<script src="assets/js/lms-documents.js"></script></body>
+<script src="assets/js/lms-documents.js?v=20261004-training5"></script>
+</body>
 </html>

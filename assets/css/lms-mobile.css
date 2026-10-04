@@ -1,0 +1,146 @@
+/* screenings4u Learning Center — shared mobile responsive layer */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{max-width:100%;overflow-x:hidden}
+img,svg,video,canvas,iframe{max-width:100%}
+input,select,textarea,button{max-width:100%}
+
+/* Standard portal shell */
+@media (max-width: 820px){
+  .app{display:block!important;min-height:100dvh}
+  .side{display:none!important}
+  .main{display:block!important;width:100%!important;min-width:0!important}
+  .top{position:sticky!important;top:0!important;z-index:70!important;min-height:60px!important;height:auto!important;padding:7px 10px!important;gap:8px!important}
+  .menu{display:inline-flex!important;align-items:center;justify-content:center;width:42px;height:42px;min-width:42px;border:1px solid #d7e1eb!important;border-radius:9px!important;background:#fff!important;color:#102f55!important}
+  .menu-bars{display:grid;gap:4px;width:18px}
+  .menu-bars span{display:block;height:2px;border-radius:2px;background:currentColor}
+  .top-left{min-width:0!important;flex:1 1 auto!important;gap:8px!important}
+  .top-context{min-width:0!important}
+  .top-context .crumb{display:block;max-width:38vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top-right{flex:0 0 auto!important;gap:7px!important}
+  .top-time-group,.portal-clock{display:none!important}
+  .top-utility-group{margin:0!important;padding:0!important;border:0!important;background:transparent!important}
+  .top-utility-group + .top-utility-group{margin-left:0!important;padding-left:0!important;border-left:0!important}
+  .top-utility-label,.top-action-group .pill,.top-support{display:none!important}
+  .font-sizer{height:38px!important}
+  .font-sizer button{height:36px!important;min-width:38px!important}
+  .font-sizer .font-reset{display:none!important}
+  .signout{min-height:38px!important;padding:0 10px!important;white-space:nowrap}
+
+  .mobile-nav{display:block!important;position:fixed!important;inset:60px 0 0!important;z-index:69!important;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .18s ease,transform .18s ease,visibility .18s ease;background:linear-gradient(180deg,#0b2747,#102f55)!important;color:#fff;overflow:hidden}
+  .mobile-nav.open{opacity:1!important;visibility:visible!important;transform:none!important}
+  .mobile-nav-inner{height:100%;display:flex;flex-direction:column;overflow:hidden}
+  .mobile-nav-head{flex:0 0 auto}
+  .mobile-nav-links,.mobile-nav nav{flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  body.mobile-nav-open{overflow:hidden!important;touch-action:none}
+
+  .content,.lms-content{width:100%!important;max-width:none!important;padding:12px!important;margin:0!important}
+  .hero{padding:18px 16px!important;border-radius:13px!important}
+  .hero h1{font-size:1.5rem!important;line-height:1.15!important}
+  .hero p{font-size:.78rem!important;line-height:1.55!important}
+  .section{margin-top:14px!important}
+
+  .metrics,.cards,.service-grid,.course-library-grid,.account-grid,.support-grid,.support-lower-grid,.documents-grid,.orders-grid,.certificate-grid,.progress-grid{grid-template-columns:1fr!important}
+  .metric,.card,.service{min-width:0!important}
+  .panel,.card,.metric,.service{max-width:100%!important}
+  .panel-head{align-items:flex-start!important;flex-wrap:wrap!important}
+
+  .table-wrap,.table-responsive,[class*="table-wrap"]{width:100%!important;max-width:100%!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch!important}
+  .table-wrap table,[class*="table-wrap"] table{min-width:680px}
+
+  .field input,.field select,.field textarea,
+  input[type="text"],input[type="email"],input[type="password"],input[type="tel"],input[type="search"],input[type="date"],input[type="time"],select,textarea{font-size:16px!important;min-height:44px}
+  textarea{min-height:120px}
+  .btn,button,a.btn{min-height:42px}
+
+  .modal-backdrop{padding:10px!important;align-items:flex-end!important}
+  .modal{width:100%!important;max-width:none!important;max-height:calc(100dvh - 20px)!important;border-radius:16px 16px 10px 10px!important;padding:16px!important}
+  .modal-grid,.form-grid{grid-template-columns:1fr!important}
+  .modal-grid .full,.form-grid .full{grid-column:auto!important}
+  .modal-actions{display:flex!important;flex-wrap:wrap!important;gap:8px!important}
+  .modal-actions>*{flex:1 1 130px}
+}
+
+@media (max-width: 560px){
+  .top{padding:7px 8px!important}
+  .top-context .crumb{max-width:30vw}
+  .font-sizer button{min-width:36px!important;padding:0 7px!important}
+  .signout{padding:0 9px!important;font-size:.61rem!important}
+  .content,.lms-content{padding:10px!important}
+  .hero{padding:16px 14px!important}
+  .hero h1{font-size:1.35rem!important}
+  .hero:after{opacity:.6}
+  .metrics{grid-template-columns:1fr!important}
+  .panel-head{padding:12px!important}
+}
+
+/* Login / reset-password */
+@media (max-width: 900px){
+  body.training-login-page main,
+  .training-login-layout,
+  .login-shell,
+  .auth-layout{grid-template-columns:1fr!important;min-height:100dvh!important;height:auto!important}
+  .login-brand,.auth-brand{min-height:auto!important;padding:28px 22px!important}
+  .login-brand-copy,.auth-brand-copy{max-width:680px!important;margin:0 auto!important}
+  .login-brand h1,.auth-brand h1{font-size:clamp(2.25rem,9vw,4rem)!important;line-height:.98!important}
+  .login-panel,.auth-panel{min-height:auto!important;padding:28px 18px 38px!important}
+  .login-panel-inner,.auth-panel-inner{width:min(520px,100%)!important;margin:0 auto!important}
+}
+@media (max-width: 560px){
+  .login-brand,.auth-brand{padding:22px 18px!important}
+  .login-brand .feature-list,.login-brand-features{display:none!important}
+  .login-panel,.auth-panel{padding:22px 14px 30px!important}
+}
+
+/* Course player */
+@media (max-width: 980px){
+  body.lms-course-player-immersive{overflow-x:hidden}
+  .course-player-topbar{min-height:58px!important;padding:8px 12px!important;gap:8px!important}
+  .course-player-topbar .course-player-brand-logo{max-width:180px!important}
+  .course-player-topbar-actions{gap:7px!important}
+  .course-player-topbar-actions .course-player-tool,.course-player-exit{min-height:40px!important;padding:0 11px!important}
+  .course-player-header{padding:18px 16px!important;display:grid!important;grid-template-columns:1fr!important;gap:16px!important}
+  .course-player-title{font-size:1.5rem!important}
+  .course-player-progress-summary{width:100%!important;max-width:none!important}
+  .course-player-layout{display:block!important;min-height:0!important}
+  .course-player-main{width:100%!important;min-width:0!important;padding:12px!important}
+  .course-player-stage{border-radius:12px!important;min-height:0!important}
+  .course-player-stage-top{padding:12px 14px!important;gap:8px!important;flex-wrap:wrap!important}
+  .course-player-stage-label{min-width:0!important;flex:1 1 180px!important}
+  .course-player-lesson-count{margin-left:auto!important}
+  .course-player-lesson-panel{padding:22px 18px!important}
+  .course-player-content-inner{max-width:none!important}
+  .course-player-lesson-title{font-size:1.5rem!important}
+  .course-player-stage-footer{position:sticky!important;bottom:0!important;z-index:5!important;background:#fff!important;padding:12px!important;gap:8px!important}
+  .course-player-stage-footer button{flex:1 1 0!important;min-width:0!important;min-height:44px!important}
+  .course-player-sidebar{position:fixed!important;top:58px!important;right:0!important;bottom:0!important;width:min(390px,92vw)!important;max-width:92vw!important;z-index:90!important;transform:translateX(105%)!important;transition:transform .2s ease!important;box-shadow:-18px 0 44px rgba(15,47,85,.18)!important;background:#fff!important}
+  body.curriculum-open .course-player-sidebar,.course-player-sidebar.is-open{transform:none!important}
+  .course-player-sidebar-scroll{max-height:calc(100dvh - 170px)!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch!important}
+}
+@media (max-width: 560px){
+  .course-player-topbar-actions .course-player-tool span,.course-player-exit span{display:none!important}
+  .course-player-topbar-actions .course-player-tool,.course-player-exit{width:42px!important;padding:0!important}
+  .course-player-header{padding:16px 12px!important}
+  .course-player-main{padding:8px!important}
+  .course-player-stage-top{padding:10px 11px!important}
+  .course-player-lesson-panel{padding:18px 14px!important}
+  .course-player-stage-footer{padding:10px!important}
+  .course-player-stage-footer button{font-size:.72rem!important;padding:0 9px!important}
+}
+
+/* Quiz / assessment */
+@media (max-width: 760px){
+  .quiz-shell,.assessment-shell,.quiz-layout,.assessment-layout{width:100%!important;max-width:none!important;padding:12px!important;margin:0!important}
+  .quiz-header,.assessment-header{padding:16px!important;border-radius:12px!important}
+  .quiz-card,.assessment-card,.quiz-question-card{padding:16px!important;border-radius:12px!important}
+  .quiz-options,.assessment-options{gap:9px!important}
+  .quiz-option,.assessment-option{padding:13px!important;min-height:48px!important}
+  .quiz-footer,.assessment-footer,.quiz-actions{display:flex!important;flex-wrap:wrap!important;gap:8px!important}
+  .quiz-footer>*,.assessment-footer>*,.quiz-actions>*{flex:1 1 140px!important}
+}
+
+/* Page-specific dense toolbars */
+@media (max-width: 760px){
+  .course-library-toolbar,.orders-toolbar,.documents-toolbar,.notification-filter-grid,.support-toolbar,.account-form-grid,.appointments-toolbar{grid-template-columns:1fr!important;display:grid!important;gap:10px!important}
+  .course-library-toolbar>*,.orders-toolbar>*,.documents-toolbar>*,.notification-filter-grid>*,.support-toolbar>*,.appointments-toolbar>*{min-width:0!important;width:100%!important}
+  .order-card-head,.document-row,.notification-row,.appointment-row,.certificate-row{align-items:flex-start!important;flex-wrap:wrap!important}
+}

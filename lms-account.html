@@ -1,184 +1,23 @@
 <!DOCTYPE html>
 
-<html class="s4u-auth-pending" lang="en">
+<html lang="en">
 <head>
+<link crossorigin="" href="https://elpbnytpciqnbexiaebp.supabase.co" rel="preconnect"/>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<meta content="noindex,nofollow,noarchive,nosnippet,noimageindex" name="robots"/>
+<meta content="noindex,nofollow,noarchive,nosnippet,noimageindex" name="googlebot"/>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>My Account | screenings4u Learning Center</title>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#102f55" name="theme-color"/>
 <link href="images/fav.png" rel="icon" type="image/png"/>
-<meta content="#24467f" name="theme-color"/>
-<link href="assets/css/lms-account.css" rel="stylesheet"/></head>
-<body class="lms-account-page s4u-lms-redesign" data-s4u-portal="training">
-
-<main class="lms-main">
-<div class="lms-content account-page">
-<nav aria-label="Breadcrumb" class="account-breadcrumb">
-<a href="lms-dashboard.html">Home</a>
-<svg viewbox="0 0 24 24"><path d="m9 18 6-6-6-6"></path></svg>
-<span>My Account</span>
-</nav>
-<section class="account-header">
-<div>
-<h1>My Account</h1>
-<p>Manage your learner profile, communication preferences, and account security.</p>
-</div>
-</section>
-<div class="account-layout">
-<aside class="account-sidebar">
-<section class="account-card account-profile-summary">
-<div class="account-avatar" data-account-avatar=""><img alt="Profile photo" data-account-avatar-image="" hidden=""/><span data-account-avatar-fallback="">--</span></div>
-<h2 data-account-name="">Learner</h2>
-<p data-account-email=""></p>
-<span class="account-role">Learner Account</span>
-</section>
-<nav aria-label="Account navigation" class="account-nav">
-<a class="active" href="#profile">
-<svg viewbox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c.8-4 3.4-6 8-6s7.2 2 8 6"></path></svg>
-              Profile Information
-            </a>
-<a href="#preferences">
-<svg viewbox="0 0 24 24"><path d="M12 3v18"></path><path d="M3 12h18"></path><circle cx="12" cy="12" r="9"></circle></svg>
-              Preferences
-            </a>
-<a href="#security">
-<svg viewbox="0 0 24 24"><rect height="10" rx="2" width="14" x="5" y="10"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
-              Security
-            </a>
-</nav>
-</aside>
-<div class="account-content">
-<!-- PROFILE -->
-<section class="account-card" id="profile">
-<div class="account-card-head">
-<h2>Profile Information</h2>
-<p>Keep your account information up to date. Your name may appear on completed training certificates.</p>
-</div>
-<form class="account-form">
-<div class="account-photo-editor">
-<div class="account-photo-preview" data-account-photo-preview="">
-<img alt="Profile photo" data-account-photo-image="" hidden=""/>
-<span data-account-photo-fallback="">--</span>
-</div>
-<div class="account-photo-copy">
-<strong>Profile Picture</strong>
-<p>Upload a JPG, PNG, or WebP image. Maximum file size: 5 MB.</p>
-<div class="account-photo-actions">
-<label class="btn btn-primary account-photo-upload" for="accountPhotoInput">Upload Photo</label>
-<button class="btn btn-secondary" hidden="" id="removeAccountPhoto" type="button">Remove Photo</button>
-</div>
-<input accept="image/jpeg,image/png,image/webp" hidden="" id="accountPhotoInput" type="file"/>
-<span aria-live="polite" class="account-photo-status" id="accountPhotoStatus"></span>
-</div>
-</div>
-<div class="form-grid">
-<div class="form-group">
-<label for="firstName">First Name</label>
-<input autocomplete="given-name" id="firstName" type="text"/>
-</div>
-<div class="form-group">
-<label for="lastName">Last Name</label>
-<input autocomplete="family-name" id="lastName" type="text"/>
-</div>
-<div class="form-group">
-<label for="email">Email Address</label>
-<input id="email" readonly="" type="email"/>
-<p class="form-help">Used for account notifications and training communications.</p>
-</div>
-<div class="form-group">
-<label for="phone">Phone Number</label>
-<input autocomplete="tel" id="phone" placeholder="Add phone number" type="tel"/>
-</div>
-<div class="form-group full">
-<label for="organization">Organization / Company</label>
-<input autocomplete="organization" id="organization" placeholder="Add organization name" type="text"/>
-<p class="form-help">This information may be used to help identify employer-provided training.</p>
-</div>
-</div>
-<div aria-live="polite" class="form-help" id="accountMessage" role="status"></div>
-<div class="account-actions">
-<button class="btn btn-secondary" type="reset">Cancel</button>
-<button class="btn btn-primary" type="submit">Save Changes</button>
-</div>
-</form>
-</section>
-<!-- PREFERENCES -->
-<section class="account-card" id="preferences">
-<div class="account-card-head">
-<h2>Learning Preferences</h2>
-<p>Choose how you would like to receive updates about your training.</p>
-</div>
-<div class="account-section-body">
-<div class="preference-row">
-<div class="preference-copy">
-<strong>Course Progress Reminders</strong>
-<span>Receive reminders when you have an active course waiting to be completed.</span>
-</div>
-<label class="switch">
-<input id="prefCourseReminders" type="checkbox"/>
-<span class="switch-slider"></span>
-</label>
-</div>
-<div class="preference-row">
-<div class="preference-copy">
-<strong>Certificate Notifications</strong>
-<span>Receive an email when a certificate becomes available.</span>
-</div>
-<label class="switch">
-<input id="prefCertificateNotifications" type="checkbox"/>
-<span class="switch-slider"></span>
-</label>
-</div>
-<div class="preference-row">
-<div class="preference-copy">
-<strong>New Course Updates</strong>
-<span>Receive occasional updates about new Screenings4u training opportunities.</span>
-</div>
-<label class="switch">
-<input id="prefNewCourseUpdates" type="checkbox"/>
-<span class="switch-slider"></span>
-</label>
-</div>
-</div>
-</section>
-<!-- SECURITY -->
-<section class="account-card" id="security">
-<div class="account-card-head">
-<h2>Account Security</h2>
-<p>Manage your password and account access settings.</p>
-</div>
-<div class="security-list">
-<div class="security-item">
-<div class="security-left">
-<div class="security-icon">
-<svg viewbox="0 0 24 24"><rect height="10" rx="2" width="14" x="5" y="10"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
-</div>
-<div class="security-copy">
-<strong>Password</strong>
-<span>Update your password to keep your account secure.</span>
-</div>
-</div>
-<button class="text-button" id="changePasswordButton" type="button">Change Password</button>
-</div>
-<div class="security-item">
-<div class="security-left">
-<div class="security-icon">
-<svg viewbox="0 0 24 24"><path d="M4 5h16v14H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
-</div>
-<div class="security-copy">
-<strong>Email Address</strong>
-<span>Your current account email is <strong data-security-email="">—</strong></span>
-</div>
-</div>
-<button class="text-button" id="updateEmailButton" type="button">Update Email</button>
-</div>
-</div>
-</section>
-<!-- ACCOUNT -->
-</div>
-</div>
-</div>
-</main>
-
+<title>Account | screenings4u Learning Center</title>
+<link href="assets/css/lms-portal.css?v=20261004-training1" rel="stylesheet"/>
+<link href="assets/css/lms-account.css?v=20261004-training6" rel="stylesheet"/>
+<link href="assets/css/lms-mobile.css?v=20261004-mobile1" rel="stylesheet"/></head>
+<body data-portal-page="account">
+<noscript>This portal requires JavaScript.</noscript>
+<div id="trainingPortalApp"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/js/lms-account.js"></script></body>
+<script src="assets/js/lms-account.js?v=20261004-training6"></script>
+</body>
 </html>

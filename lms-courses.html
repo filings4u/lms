@@ -1,112 +1,22 @@
 <!DOCTYPE html>
 
-<html class="s4u-auth-pending" lang="en">
+<html lang="en">
 <head>
+<link crossorigin="" href="https://elpbnytpciqnbexiaebp.supabase.co" rel="preconnect"/>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<meta content="noindex,nofollow,noarchive,nosnippet,noimageindex" name="robots"/>
+<meta content="noindex,nofollow,noarchive,nosnippet,noimageindex" name="googlebot"/>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Course Library | screenings4u Learning Center</title>
-<meta content="#24467f" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#102f55" name="theme-color"/>
 <link href="images/fav.png" rel="icon" type="image/png"/>
-<link href="assets/css/lms-courses.css" rel="stylesheet"/></head>
-<body class="lms-course-library-page" data-s4u-portal="training">
-
-<main class="lms-main">
-<div class="lms-content course-library-content">
-<nav aria-label="Breadcrumb" class="course-library-breadcrumb">
-<a href="lms-dashboard.html">Home</a>
-<svg aria-hidden="true" viewbox="0 0 24 24"><path d="m9 18 6-6-6-6"></path></svg>
-<span>Course Library</span>
-</nav>
-<section class="course-library-hero">
-<div class="course-library-hero-copy">
-<span class="course-library-kicker">SCREENINGS4U LEARNING CENTER</span>
-<h1>Course Library</h1>
-<p>Browse every published screenings4u training course in one place. This catalog shows all available training whether or not it is assigned to your account. Search, compare options, and open any course to review details.</p>
-<div class="course-library-hero-actions">
-<a class="catalog-primary-button" href="#all-courses">Browse All Courses</a>
-<a class="catalog-secondary-button" href="lms-my-courses.html">My Learning</a>
-</div>
-</div>
-<div aria-label="Course catalog summary" class="course-library-hero-panel">
-<div aria-hidden="true" class="hero-panel-mark">
-<svg viewbox="0 0 48 48">
-<path d="M8 10.5A5.5 5.5 0 0 1 13.5 5H40v33H13.5A5.5 5.5 0 0 0 8 43.5z"></path>
-<path d="M8 10.5v33"></path>
-<path d="M16 15h16"></path>
-<path d="M16 22h13"></path>
-</svg>
-</div>
-<span class="hero-panel-label">Available Training</span>
-<strong id="availableCourseCount">—</strong>
-<span class="hero-panel-copy">published courses in the learning catalog</span>
-</div>
-</section>
-<section aria-label="Catalog overview" class="catalog-overview">
-<article class="catalog-overview-card">
-<span class="overview-icon">
-<svg viewbox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"></path><path d="M4 5.5v16"></path></svg>
-</span>
-<div><strong id="catalogCourseCount">—</strong><span>Published courses</span></div>
-</article>
-<article class="catalog-overview-card">
-<span class="overview-icon">
-<svg viewbox="0 0 24 24"><path d="M4 19V9"></path><path d="M10 19V5"></path><path d="M16 19v-7"></path><path d="M22 19V3"></path></svg>
-</span>
-<div><strong id="catalogCategoryCount">—</strong><span>Training categories</span></div>
-</article>
-<article class="catalog-overview-card">
-<span class="overview-icon">
-<svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg>
-</span>
-<div><strong id="catalogSelfPacedCount">—</strong><span>Self-paced courses</span></div>
-</article>
-</section>
-<section class="course-catalog" id="all-courses">
-<div class="catalog-heading-row">
-<div>
-<span class="course-library-section-kicker">ALL TRAINING</span>
-<h2>Explore every course</h2>
-<p>Use search and filters to quickly find the training you need.</p>
-</div>
-<span class="catalog-results" id="coursesResultsCount">Loading courses…</span>
-</div>
-<div aria-label="Course filters" class="catalog-toolbar">
-<label class="catalog-search">
-<svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="m20 20-4-4"></path></svg>
-<input id="courseSearch" placeholder="Search course titles or topics..." type="search"/>
-</label>
-<label class="catalog-filter-field">
-<span>Category</span>
-<select id="courseCategory">
-<option value="all">All Categories</option>
-</select>
-</label>
-<label class="catalog-filter-field">
-<span>Sort</span>
-<select id="courseSort">
-<option value="newest">Newest first</option>
-<option value="title-asc">Title A–Z</option>
-<option value="title-desc">Title Z–A</option>
-</select>
-</label>
-</div>
-<div aria-live="polite" class="catalog-loading" id="coursesLoading">
-<span aria-hidden="true" class="catalog-spinner"></span>
-<span>Loading course library…</span>
-</div>
-<div aria-live="polite" class="courses-grid" id="coursesGrid"></div>
-<div class="courses-empty" hidden="" id="coursesEmpty">
-<span class="courses-empty-icon">
-<svg viewbox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="m20 20-4-4"></path></svg>
-</span>
-<h3>No courses match those filters</h3>
-<p>Clear the filters to return to the complete course catalog.</p>
-<button class="courses-clear-button" id="coursesClearFilters" type="button">Clear Filters</button>
-</div>
-</section>
-</div>
-</main>
-
+<title>Course Library | screenings4u Learning Center</title>
+<link href="assets/css/lms-portal.css?v=20261004-training2" rel="stylesheet"/>
+<link href="assets/css/lms-mobile.css?v=20261004-mobile1" rel="stylesheet"/></head>
+<body data-portal-page="course-library">
+<noscript>This portal requires JavaScript.</noscript>
+<div id="trainingPortalApp"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/js/lms-courses.js"></script></body>
+<script src="assets/js/lms-courses.js?v=20261004-training3"></script>
+</body>
 </html>
