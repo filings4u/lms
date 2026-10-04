@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<meta content="#24467f" name="theme-color"/>
+<title>Reschedule Appointment | screenings4u Learning Center</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+<!-- This page only -->
+<link href="assets/css/lms-reschedule-appointment.css" rel="stylesheet"/></head>
+<body class="lms-my-appointments-page s4u-lms-redesign" data-reschedule-view="true">
+
+<main class="lms-main">
+<div class="lms-content appointments-page">
+<nav aria-label="Breadcrumb" class="appointments-breadcrumb">
+<a href="lms-dashboard.html">Home</a>
+<span aria-hidden="true">›</span>
+<a href="lms-my-appointments.html">Appointments</a>
+<span aria-hidden="true">›</span>
+<span>Reschedule</span>
+</nav>
+<section class="appointments-hero">
+<div class="appointments-hero-copy">
+<span class="appointments-kicker">APPOINTMENTS</span>
+<h1>Reschedule Appointment</h1>
+<p>Select an upcoming appointment below and choose Reschedule. This page is always available, even before you book a session.</p>
+</div>
+<a class="appointments-primary-action" href="lms-schedule-appointment.html">
+            + Schedule Appointment
+          </a>
+</section>
+<div aria-live="polite" class="appointments-message" hidden="" id="appointmentsMessage"></div>
+<section class="appointments-card">
+<div class="appointments-card-head">
+<div>
+<span class="appointments-section-kicker">APPOINTMENTS</span>
+<h2>Upcoming Training Sessions</h2>
+<p>If you have an eligible appointment, use its Reschedule button to choose a new date and time.</p>
+</div>
+<span class="appointments-count" id="appointmentsCount">—</span>
+</div>
+<div class="appointments-list" id="appointmentsList">
+<div class="appointments-loading">
+<span class="appointments-spinner"></span>
+<p>Loading your appointments…</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+
+<!-- Functional LMS stack -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/lms-reschedule-appointment.js"></script></body>
+</html>

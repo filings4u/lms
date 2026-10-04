@@ -1,0 +1,24 @@
+/* screenings4u Learning Center shell v3 — design-only layer. No data/auth changes. */
+:root{--s4u-shell:#2b5593;--s4u-shell-dark:#23477f;--s4u-orange:#ff6b00;--s4u-page:#f4f7fb;--s4u-line:#d9e2ef;--s4u-text:#14213d;--s4u-muted:#60708f}
+html,body{background:var(--s4u-page)!important}
+.lms-topbar{height:64px!important;min-height:64px!important;background:var(--s4u-shell)!important;border-bottom:1px solid rgba(255,255,255,.15)!important;padding:0 20px!important;display:flex!important;align-items:center!important;gap:18px!important}
+.lms-topbar-left{display:flex!important;align-items:center!important;gap:16px!important;min-width:0!important}
+.s4u-page-title{color:#fff;font-size:14px;font-weight:800;white-space:nowrap}
+.lms-menu-button{flex:0 0 auto!important;border-color:rgba(255,255,255,.24)!important;background:rgba(255,255,255,.08)!important;color:#fff!important}
+.lms-menu-button svg{stroke:#fff!important}
+/* keep utility controls on the right, but make the brand/title the visual anchor */
+.lms-topbar-right{margin-left:auto!important}.lms-search-wrap{margin-left:auto!important}
+/* consistent application canvas */
+.lms-main{background:var(--s4u-page)!important}.lms-content{max-width:1320px!important}
+/* Welcome/orientation: no sidebar, full-width shell, same header grammar as player */
+body.lms-onboarding-mode .onboard-brandbar{height:64px!important;background:var(--s4u-shell)!important;padding:0 max(20px,calc((100vw - 1320px)/2))!important;display:flex!important;align-items:center!important}
+body.lms-onboarding-mode .onboard-brandbar img{width:142px!important;max-height:34px!important;object-fit:contain!important}
+body.lms-onboarding-mode .onboard-brandbar .divider{height:27px!important;margin:0 16px!important;background:rgba(255,255,255,.28)!important}
+body.lms-onboarding-mode .onboard-brandbar span:not(.divider){color:#fff!important;font-size:14px!important;font-weight:800!important}
+body.lms-onboarding-mode .onboard-brandbar b{color:#fff!important;text-transform:none!important;letter-spacing:0!important;font-size:14px!important;font-weight:800!important;margin-left:0!important}
+body.lms-onboarding-mode .onboard-brandbar b:before{content:"";display:inline-block;width:1px;height:27px;background:rgba(255,255,255,.28);vertical-align:middle;margin:0 16px}
+/* cards and controls share player geometry */
+.lms-section,.lms-widget,.lms-card,.course-card,.certificate-card,.progress-card,.account-card,.support-card,.orders-card,.appointment-card,.document-card{border-radius:16px!important;border-color:var(--s4u-line)!important}
+@media(min-width:861px){body.lms-nav-collapsed .lms-content{max-width:1400px!important} body.lms-nav-collapsed .lms-sidebar-brand{height:64px!important;overflow:hidden!important} body.lms-nav-collapsed .lms-brand-logo{opacity:0!important;width:0!important} body.lms-nav-collapsed .lms-sidebar-inner{background:var(--s4u-shell-dark)!important} body.lms-nav-collapsed .lms-nav-link{width:52px!important;margin:4px auto!important;border-radius:10px!important} body.lms-nav-collapsed .lms-nav-link.active{background:rgba(255,255,255,.14)!important} body.lms-nav-collapsed .lms-nav-link.active::before{background:var(--s4u-orange)!important}}
+@media(max-width:1100px){.lms-search-wrap{display:none!important}}
+@media(max-width:860px){.lms-topbar{padding:0 14px!important;gap:10px!important}.s4u-page-title{font-size:13px}.lms-topbar-right{gap:6px!important}body.lms-onboarding-mode .onboard-brandbar{padding:0 14px!important}body.lms-onboarding-mode .onboard-brandbar img{width:116px!important}body.lms-onboarding-mode .onboard-brandbar .divider{margin:0 9px!important}body.lms-onboarding-mode .onboard-brandbar b:before{margin:0 9px;height:24px}}

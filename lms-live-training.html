@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<meta content="#24467f" name="theme-color"/>
+<title>Live Training | screenings4u Learning Center</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+<!-- Live Training page -->
+<link href="assets/css/lms-live-training.css" rel="stylesheet"/></head>
+<body class="s4u-lms-redesign lms-live-training-redesign">
+
+<main class="lms-main">
+<div class="lms-content live-training-page">
+<div aria-live="polite" class="live-message" hidden="" id="liveMessage"></div>
+<nav aria-label="Breadcrumb" class="live-breadcrumb">
+<a href="lms-dashboard.html">Home</a>
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="m9 18 6-6-6-6"></path></svg>
+<a href="lms-my-appointments.html">My Appointments</a>
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="m9 18 6-6-6-6"></path></svg>
+<span>Live Training</span>
+</nav>
+<!-- Compact page header -->
+<section aria-labelledby="trainingTitle" class="live-page-header">
+<div class="live-page-header-main">
+<div aria-hidden="true" class="live-page-icon">
+<svg viewbox="0 0 24 24">
+<rect height="14" rx="2" width="13" x="3" y="5"></rect>
+<path d="m16 10 5-3v10l-5-3z"></path>
+</svg>
+</div>
+<div class="live-page-copy">
+<span class="live-eyebrow">SCREENINGS4U LEARNING CENTER</span>
+<h1 id="trainingTitle">Loading your training session…</h1>
+<p id="trainingSchedule">Please wait while we verify your appointment.</p>
+</div>
+</div>
+<div class="live-page-header-actions">
+<span class="live-secure-pill">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 11V8a5 5 0 0 1 10 0v3"></path><rect height="10" rx="2" width="14" x="5" y="11"></rect></svg>
+            Secure session
+          </span>
+<a class="live-back-link" href="lms-my-appointments.html">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="m15 18-6-6 6-6"></path></svg>
+            My Appointments
+          </a>
+</div>
+</section>
+<!-- Scheduled / not-yet-open state -->
+<section class="scheduled-card" hidden="" id="scheduledState">
+<div aria-hidden="true" class="scheduled-status-icon">
+<svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+</div>
+<div class="scheduled-copy-wrap">
+<span class="scheduled-kicker">UPCOMING SESSION</span>
+<h2>Your live room is scheduled</h2>
+<p id="scheduledCopy"></p>
+</div>
+<div class="scheduled-security">
+<span>Room access</span>
+<strong>Opens 30 minutes before start</strong>
+<small>Your meeting link stays protected until the join window opens.</small>
+</div>
+<a class="scheduled-action" href="lms-my-appointments.html">View appointment</a>
+</section>
+<!-- Pre-join workspace -->
+<section class="prejoin-grid" hidden="" id="prejoinState">
+<div class="preview-panel">
+<div class="preview-panel-heading">
+<div>
+<span class="live-eyebrow">DEVICE CHECK</span>
+<h2>Camera &amp; microphone</h2>
+</div>
+<span class="preview-ready-badge"><span></span> Preview</span>
+</div>
+<div class="preview-stage-wrap">
+<div class="video-stage local-preview" id="localPreview">
+<div class="video-placeholder">
+<span id="previewInitials"></span>
+<p>Camera preview</p>
+</div>
+</div>
+<div class="preview-stage-label">You</div>
+</div>
+<div aria-label="Device controls" class="preview-toolbar">
+<button aria-pressed="false" class="device-control" id="cameraBtn" title="Camera" type="button">
+<span class="device-control-icon">
+<svg aria-hidden="true" viewbox="0 0 24 24"><rect height="12" rx="2" width="13" x="3" y="6"></rect><path d="m16 10 5-3v10l-5-3z"></path></svg>
+</span>
+<small>Camera</small>
+</button>
+<button aria-pressed="false" class="device-control" id="micBtn" title="Microphone" type="button">
+<span class="device-control-icon">
+<svg aria-hidden="true" viewbox="0 0 24 24"><rect height="11" rx="3" width="6" x="9" y="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"></path></svg>
+</span>
+<small>Mic</small>
+</button>
+</div>
+</div>
+<aside class="join-panel">
+<div class="join-panel-top">
+<span class="live-eyebrow">READY TO JOIN</span>
+<h2 id="welcomeName">Welcome</h2>
+<p>Confirm your devices, then enter the screenings4u waiting room. Your instructor will admit you when the session is ready.</p>
+</div>
+<dl class="session-details">
+<div class="session-detail-row">
+<span aria-hidden="true" class="session-detail-icon">
+<svg viewbox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg>
+</span>
+<div><dt>Instructor</dt><dd id="hostName">screenings4u Training</dd></div>
+</div>
+<div class="session-detail-row">
+<span aria-hidden="true" class="session-detail-icon">
+<svg viewbox="0 0 24 24"><path d="M4 7h16v10H4z"></path><path d="M8 11h8M8 14h5"></path></svg>
+</span>
+<div><dt>Tracking</dt><dd id="trackingNumber">—</dd></div>
+</div>
+<div class="session-detail-row">
+<span aria-hidden="true" class="session-detail-icon">
+<svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+</span>
+<div><dt>Session time</dt><dd id="sessionTime">—</dd></div>
+</div>
+</dl>
+<div class="join-panel-footer">
+<button class="join-button" id="joinBtn" type="button">
+<span>Enter Waiting Room</span>
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"></path></svg>
+</button>
+<p class="join-note">
+<svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>
+              Keep this page open while you wait to be admitted.
+            </p>
+</div>
+</aside>
+</section>
+<!-- Active meeting workspace -->
+<section hidden="" id="meetingState">
+<header class="meeting-header">
+<div class="meeting-status-wrap">
+<span class="status-dot" id="meetingStatusDot"></span>
+<div>
+<strong id="meetingStatus">Connecting…</strong>
+<span id="meetingSubtitle">screenings4u Live Training</span>
+</div>
+</div>
+<button class="leave-button" id="leaveBtn" type="button">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M10 6H5v12h5M14 8l4 4-4 4M8 12h10"></path></svg>
+            Leave Training
+          </button>
+</header>
+<div class="meeting-body">
+<div class="lobby-panel" hidden="" id="lobbyPanel">
+<div class="lobby-visual">
+<div class="lobby-spinner"></div>
+<div class="lobby-ring lobby-ring-one"></div>
+<div class="lobby-ring lobby-ring-two"></div>
+</div>
+<span class="live-eyebrow">WAITING ROOM</span>
+<h2>Waiting for your instructor</h2>
+<p>You are checked in. Your instructor has been notified through Microsoft Teams and will admit you when ready.</p>
+<div class="lobby-person">
+<span id="lobbyInitials"></span>
+<div><strong id="lobbyName"></strong><small>Waiting to be admitted</small></div>
+</div>
+</div>
+<div class="connected-panel" hidden="" id="connectedPanel">
+<div class="remote-gallery" id="remoteGallery">
+<div class="remote-empty" id="emptyRemote">
+<div class="remote-empty-icon">
+<svg aria-hidden="true" viewbox="0 0 24 24"><rect height="14" rx="2" width="13" x="3" y="5"></rect><path d="m16 10 5-3v10l-5-3z"></path></svg>
+</div>
+<span>Live Training</span>
+<p>Connected. Video participants will appear here.</p>
+</div>
+</div>
+<div class="meeting-controls">
+<button id="meetingMicBtn" type="button">
+<svg aria-hidden="true" viewbox="0 0 24 24"><rect height="11" rx="3" width="6" x="9" y="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"></path></svg>
+<span>Mute</span>
+</button>
+<button id="meetingCameraBtn" type="button">
+<svg aria-hidden="true" viewbox="0 0 24 24"><rect height="12" rx="2" width="13" x="3" y="6"></rect><path d="m16 10 5-3v10l-5-3z"></path></svg>
+<span>Start Camera</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/lms-live-training.js" type="module"></script></body>
+</html>

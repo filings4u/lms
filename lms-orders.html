@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html class="s4u-auth-pending" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#24467f" name="theme-color"/>
+<title>Orders | screenings4u Learning Center</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+<link href="assets/css/lms-orders.css" rel="stylesheet"/></head>
+<body class="lms-orders-page" data-s4u-portal="training">
+
+<main class="lms-main">
+<div class="lms-content orders-page">
+<nav aria-label="Breadcrumb" class="orders-breadcrumb">
+<a href="lms-dashboard.html">Home</a>
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="m9 18 6-6-6-6"></path></svg>
+<span>Orders</span>
+</nav>
+<section class="orders-header">
+<div class="orders-header-copy">
+<h1>Training Orders</h1>
+<p>View your screenings4u training purchases, payment details, course items, add-ons, and receipts in one place.</p>
+</div>
+<div aria-label="Order summary" class="orders-hero-summary">
+<span aria-hidden="true" class="orders-hero-icon">
+<svg viewbox="0 0 24 24">
+<path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"></path>
+<path d="M9 8h6"></path>
+<path d="M9 12h6"></path>
+</svg>
+</span>
+<span>Orders on file</span>
+<strong id="ordersHeroCount">—</strong>
+<small>Training purchases tied to your learner account</small>
+</div>
+</section>
+<section class="orders-card orders-content-card">
+<div class="orders-card-head">
+<div>
+<h2>Purchase History</h2>
+<p>Orders shown here are limited to Learning Center training purchases associated with your account.</p>
+</div>
+<label class="orders-filter-search">
+<svg aria-hidden="true" viewbox="0 0 24 24">
+<circle cx="11" cy="11" r="6"></circle>
+<path d="m20 20-4-4"></path>
+</svg>
+<input aria-label="Search training orders" id="ordersSearch" placeholder="Search orders or courses..." type="search"/>
+</label>
+</div>
+<div aria-live="polite" class="orders-message" hidden="" id="ordersMessage" role="status"></div>
+<div aria-live="polite" class="orders-list" id="ordersList">
+<div class="orders-loading">
+<span aria-hidden="true" class="orders-spinner"></span>
+<div>
+<strong>Loading purchase history</strong>
+<p>Retrieving your Learning Center orders…</p>
+</div>
+</div>
+</div>
+</section>
+<section class="orders-support-card">
+<div>
+<h2>Need help with a training order?</h2>
+<p>Contact Screenings4u support if you have a question about a charge, receipt, course access, or training purchase.</p>
+</div>
+<a href="lms-support.html">Contact Support</a>
+</section>
+</div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/lms-orders.js"></script></body>
+</html>

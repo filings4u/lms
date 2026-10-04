@@ -1,0 +1,27 @@
+/* My Learning — Course Extension Button */
+.my-course-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.my-course-card-extend {
+  color: var(--lms-orange);
+}
+
+.my-course-card-extend:hover {
+  color: var(--lms-orange-dark);
+}
+
+@media (max-width: 680px) {
+  .continue-course-actions {
+    flex-wrap: wrap;
+  }
+
+  .my-course-card-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

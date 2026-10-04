@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<meta content="#24467f" name="theme-color"/>
+<title>My Appointments | screenings4u Learning Center</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+<!-- This page only -->
+<link href="assets/css/lms-my-appointments.css" rel="stylesheet"/></head>
+<body class="lms-my-appointments-page s4u-lms-redesign">
+
+<main class="lms-main">
+<div class="lms-content appointments-page">
+<nav aria-label="Breadcrumb" class="appointments-breadcrumb">
+<a href="lms-dashboard.html">Home</a>
+<span aria-hidden="true">›</span>
+<span>Appointments</span>
+</nav>
+<section class="appointments-hero">
+<div class="appointments-hero-copy">
+<span class="appointments-kicker">SCREENINGS4U LEARNING CENTER</span>
+<h1>My Appointments</h1>
+<p>Manage your scheduled Microsoft Teams training sessions.</p>
+</div>
+<a class="appointments-primary-action" href="lms-schedule-appointment.html">
+            + Schedule Appointment
+          </a>
+</section>
+<div aria-live="polite" class="appointments-message" hidden="" id="appointmentsMessage"></div>
+<section class="appointments-card">
+<div class="appointments-card-head">
+<div>
+<span class="appointments-section-kicker">APPOINTMENTS</span>
+<h2>Training Sessions</h2>
+<p>Every live appointment is hosted through Microsoft Teams inside Screenings4u.</p>
+</div>
+<span class="appointments-count" id="appointmentsCount">—</span>
+</div>
+<div class="appointments-list" id="appointmentsList">
+<div class="appointments-loading">
+<span class="appointments-spinner"></span>
+<p>Loading your appointments…</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+
+<!-- Functional LMS stack -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/lms-my-appointments.js"></script></body>
+</html>

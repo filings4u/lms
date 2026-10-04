@@ -1,0 +1,357 @@
+/* ============================================================
+   SCREENINGS4U LEARNING CENTER — UNIFIED 2026 DESIGN LAYER
+   Visual reference: lms-dashboard.html + lms-account.html
+   Course player is intentionally excluded by body scoping.
+   ============================================================ */
+
+body.s4u-lms-redesign {
+  --u-navy: #24467f;
+  --u-navy-deep: #17335f;
+  --u-blue: #325aa3;
+  --u-orange: #ff6b00;
+  --u-orange-hover: #e66000;
+  --u-page: #f4f7fc;
+  --u-card: #ffffff;
+  --u-text: #172033;
+  --u-muted: #687386;
+  --u-line: #d9e3f0;
+  --u-soft: #eef3f9;
+  --u-radius: 15px;
+  --u-radius-lg: 20px;
+  --u-shadow: 0 10px 30px rgba(36, 70, 127, 0.07);
+  margin: 0;
+  background: var(--u-page) !important;
+  color: var(--u-text) !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body.s4u-lms-redesign .lms-app,
+body.s4u-lms-redesign .lms-main {
+  min-width: 0;
+  background: var(--u-page) !important;
+}
+
+/* Shared application canvas */
+body.s4u-lms-redesign .lms-content,
+body.s4u-lms-redesign .lms-notifications-content,
+body.s4u-lms-redesign .lms-support-content,
+body.s4u-lms-redesign .onboard-wrap {
+  width: min(1320px, calc(100% - 56px)) !important;
+  max-width: 1320px !important;
+  margin: 0 auto !important;
+  padding-top: 28px !important;
+  padding-bottom: 54px !important;
+}
+
+/* Top bar: match dashboard/account */
+body.s4u-lms-redesign .lms-topbar {
+  min-height: 64px !important;
+  height: 64px !important;
+  padding: 0 22px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  background: var(--u-navy) !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+body.s4u-lms-redesign .lms-topbar-left,
+body.s4u-lms-redesign .lms-topbar-right {
+  display: flex !important;
+  align-items: center !important;
+}
+body.s4u-lms-redesign .lms-topbar-right { margin-left: auto !important; }
+body.s4u-lms-redesign .lms-search-wrap { margin-left: auto !important; }
+body.s4u-lms-redesign .lms-menu-button,
+body.s4u-lms-redesign .lms-icon-button,
+body.s4u-lms-redesign .lms-user-button {
+  color: #fff !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+body.s4u-lms-redesign .lms-menu-button svg,
+body.s4u-lms-redesign .lms-icon-button svg,
+body.s4u-lms-redesign .lms-user-button svg {
+  stroke: currentColor !important;
+}
+body.s4u-lms-redesign .lms-menu-button:hover,
+body.s4u-lms-redesign .lms-icon-button:hover,
+body.s4u-lms-redesign .lms-user-button:hover {
+  background: rgba(255,255,255,.09) !important;
+}
+body.s4u-lms-redesign .lms-search {
+  min-height: 40px !important;
+  border: 1px solid rgba(255,255,255,.18) !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  box-shadow: none !important;
+}
+body.s4u-lms-redesign .lms-search input { background: transparent !important; color: var(--u-text) !important; }
+body.s4u-lms-redesign .lms-user-name { color: #fff !important; }
+body.s4u-lms-redesign .lms-user-avatar {
+  border-color: #fff !important;
+  background: #fff !important;
+  color: var(--u-navy) !important;
+}
+body.s4u-lms-redesign .lms-notification-dot {
+  background: var(--u-orange) !important;
+  border-color: var(--u-navy) !important;
+}
+body.s4u-lms-redesign .lms-user-menu {
+  overflow: hidden;
+  border: 1px solid var(--u-line) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 18px 45px rgba(23,51,95,.14) !important;
+}
+
+/* Breadcrumbs */
+body.s4u-lms-redesign :is(
+  .account-breadcrumb,.assessment-breadcrumb,.certificates-breadcrumb,.course-details-breadcrumb,
+  .course-library-breadcrumb,.my-learning-breadcrumb,.progress-breadcrumb,.quiz-breadcrumb,
+  .appointments-breadcrumb,.schedule-breadcrumb
+) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px !important;
+  color: var(--u-muted) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+}
+body.s4u-lms-redesign :is(
+  .account-breadcrumb,.assessment-breadcrumb,.certificates-breadcrumb,.course-details-breadcrumb,
+  .course-library-breadcrumb,.my-learning-breadcrumb,.progress-breadcrumb,.quiz-breadcrumb,
+  .appointments-breadcrumb,.schedule-breadcrumb
+) a { color: var(--u-blue) !important; }
+body.s4u-lms-redesign :is(
+  .account-breadcrumb,.assessment-breadcrumb,.certificates-breadcrumb,.course-details-breadcrumb,
+  .course-library-breadcrumb,.my-learning-breadcrumb,.progress-breadcrumb,.quiz-breadcrumb,
+  .appointments-breadcrumb,.schedule-breadcrumb
+) svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+/* Hero/header grammar across the LMS */
+body.s4u-lms-redesign :is(
+  .home-hero,.account-header,.assessment-hero,.certificates-hero,.course-details-hero,
+  .course-library-hero,.my-learning-hero,.progress-hero,.appointments-hero,
+  .orders-heading,.lms-notifications-intro,.lms-support-intro,.scheduler-page-head,
+  .schedule-hero,.onboard-page-head,.live-heading,.s4u-page-hero
+) {
+  position: relative;
+  overflow: hidden;
+  border: 0 !important;
+  border-radius: var(--u-radius-lg) !important;
+  background: linear-gradient(125deg, var(--u-navy-deep), var(--u-navy) 65%, var(--u-blue)) !important;
+  box-shadow: none !important;
+  color: #fff !important;
+}
+body.s4u-lms-redesign :is(
+  .home-hero,.account-header,.assessment-hero,.certificates-hero,.course-details-hero,
+  .course-library-hero,.my-learning-hero,.progress-hero,.appointments-hero,
+  .orders-heading,.lms-notifications-intro,.lms-support-intro,.scheduler-page-head,
+  .schedule-hero,.onboard-page-head,.live-heading,.s4u-page-hero
+)::before {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  top: -150px;
+  right: -95px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 50%;
+  pointer-events: none;
+}
+body.s4u-lms-redesign :is(
+  .home-hero,.account-header,.assessment-hero,.certificates-hero,.course-details-hero,
+  .course-library-hero,.my-learning-hero,.progress-hero,.appointments-hero,
+  .orders-heading,.lms-notifications-intro,.lms-support-intro,.scheduler-page-head,
+  .schedule-hero,.onboard-page-head,.live-heading,.s4u-page-hero
+)::after {
+  content: "";
+  position: absolute;
+  width: 225px;
+  height: 225px;
+  right: 115px;
+  bottom: -150px;
+  border-radius: 50%;
+  background: rgba(255,107,0,.10);
+  pointer-events: none;
+}
+body.s4u-lms-redesign :is(
+  .home-hero,.account-header,.assessment-hero,.certificates-hero,.course-details-hero,
+  .course-library-hero,.my-learning-hero,.progress-hero,.appointments-hero,
+  .orders-heading,.lms-notifications-intro,.lms-support-intro,.scheduler-page-head,
+  .schedule-hero,.onboard-page-head,.live-heading,.s4u-page-hero
+) :is(h1,.lms-page-title) {
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+  color: #fff !important;
+  font-size: clamp(30px, 3vw, 42px) !important;
+  line-height: 1.06 !important;
+  letter-spacing: -.035em !important;
+}
+body.s4u-lms-redesign :is(
+  .home-hero,.account-header,.assessment-hero,.certificates-hero,.course-details-hero,
+  .course-library-hero,.my-learning-hero,.progress-hero,.appointments-hero,
+  .orders-heading,.lms-notifications-intro,.lms-support-intro,.scheduler-page-head,
+  .schedule-hero,.onboard-page-head,.live-heading,.s4u-page-hero
+) p {
+  position: relative;
+  z-index: 1;
+  color: rgba(255,255,255,.80) !important;
+}
+body.s4u-lms-redesign :is(
+  .lms-eyebrow,.assessment-kicker,.certificates-kicker,.course-details-category,
+  .course-library-eyebrow,.course-library-section-kicker,.my-learning-kicker,
+  .progress-kicker,.appointments-kicker,.lms-notifications-eyebrow,
+  .lms-support-eyebrow,.onboard-eyebrow,.live-eyebrow,.s4u-page-kicker
+) { color: #ffb47d !important; }
+
+/* Standard cards, panels, and workspaces */
+body.s4u-lms-redesign :is(
+  .lms-section,.lms-widget,.account-card,.account-nav,.assessment-main-card,.assessment-side-card,
+  .certificates-section-card,.certificate-preview-card,.certificates-help-card,.course-details-section,
+  .course-details-info-card,.course-enrollment-card,.course-support-card,.course-card,
+  .continue-course-card,.my-learning-section,.progress-main-card,.progress-stat-card,.progress-panel,
+  .quiz-card,.quiz-side,.appointments-card,.orders-list,.lms-notifications-panel,.lms-notifications-help,
+  .lms-support-summary,.lms-support-workspace,.live-card,.scheduled-card,.preview-card,.join-card,
+  .booking-card,.appointments-panel,.upload-panel,.consent,.document-card
+) {
+  border-color: var(--u-line) !important;
+  border-radius: var(--u-radius) !important;
+  box-shadow: none !important;
+}
+body.s4u-lms-redesign :is(
+  .lms-section,.lms-widget,.account-card,.account-nav,.assessment-main-card,.assessment-side-card,
+  .certificates-section-card,.certificate-preview-card,.course-details-section,.course-details-info-card,
+  .course-enrollment-card,.course-support-card,.course-card,.continue-course-card,.my-learning-section,
+  .progress-main-card,.progress-stat-card,.progress-panel,.quiz-card,.quiz-side,.appointments-card,
+  .orders-list,.lms-notifications-panel,.lms-notifications-help,.lms-support-workspace,.live-card,
+  .scheduled-card,.preview-card,.join-card,.booking-card,.appointments-panel,.upload-panel,.consent,.document-card
+) { background: var(--u-card) !important; }
+
+body.s4u-lms-redesign :is(
+  .account-card-head,.lms-widget-header,.lms-section-header,.certificate-info-header,
+  .progress-panel-header,.lms-notifications-panel-heading,.lms-support-thread-header,.consent-head,.list-head
+) { border-color: var(--u-line) !important; }
+
+body.s4u-lms-redesign h1,
+body.s4u-lms-redesign h2,
+body.s4u-lms-redesign h3 { color: var(--u-text); }
+body.s4u-lms-redesign :is(
+  .lms-page-description,.section-copy,.course-details-section-text,.course-support-text,
+  .certificate-info-copy p,.lms-notifications-help p,.lms-support-thread-empty p
+) { color: var(--u-muted) !important; }
+
+/* Stats */
+body.s4u-lms-redesign :is(
+  .home-stat-strip,.certificates-stat-strip,.certificates-stats,.progress-stat-strip,.progress-overview,
+  .catalog-overview,.lms-notifications-summary,.lms-support-summary
+) { gap: 12px !important; }
+body.s4u-lms-redesign :is(
+  .home-stat,.cert-stat,.progress-stat-card,.catalog-overview-card,.lms-notification-stat,.lms-support-summary article
+) {
+  border: 1px solid var(--u-line) !important;
+  border-radius: 14px !important;
+  background: #fff !important;
+  box-shadow: none !important;
+}
+
+/* Forms */
+body.s4u-lms-redesign :is(input,select,textarea) {
+  border-color: var(--u-line) !important;
+  border-radius: 9px !important;
+  background: #fff;
+  box-shadow: none !important;
+}
+body.s4u-lms-redesign :is(input,select,textarea):focus {
+  outline: 0 !important;
+  border-color: var(--u-blue) !important;
+  box-shadow: 0 0 0 3px rgba(50,90,163,.09) !important;
+}
+
+/* Buttons / actions */
+body.s4u-lms-redesign :is(
+  .lms-button-primary,.lms-primary-button,.btn-primary,.assessment-start,.course-primary-action,
+  .courses-featured-button,.course-action-primary,.course-card-action,.appointments-primary-action,
+  .lms-notifications-mark-all,.lms-support-primary,.lms-support-chat-start,.catalog-primary-button,
+  button[type="submit"]
+) {
+  border-color: var(--u-orange) !important;
+  background: var(--u-orange) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+body.s4u-lms-redesign :is(
+  .lms-button-primary,.lms-primary-button,.btn-primary,.assessment-start,.course-primary-action,
+  .courses-featured-button,.course-action-primary,.course-card-action,.appointments-primary-action,
+  .lms-notifications-mark-all,.lms-support-primary,.lms-support-chat-start,.catalog-primary-button,
+  button[type="submit"]
+):hover {
+  border-color: var(--u-orange-hover) !important;
+  background: var(--u-orange-hover) !important;
+}
+body.s4u-lms-redesign :is(
+  .lms-button-secondary,.btn-secondary,.assessment-back,.course-action-secondary,.catalog-secondary-button,
+  .courses-clear-button,.lms-notifications-refresh,.back,.course-support-link,.certificates-support-link,
+  .progress-link,.my-learning-browse-link,.live-back-link
+) {
+  border-color: var(--u-line) !important;
+  background: #fff !important;
+  color: var(--u-navy) !important;
+  box-shadow: none !important;
+}
+body.s4u-lms-redesign :is(.lms-text-link,.text-button,a[class*="text-link"]) { color: var(--u-orange) !important; }
+
+/* Progress and status accents */
+body.s4u-lms-redesign :is(
+  .assessment-completion-fill,.continue-course-progress-fill,.my-course-card-fill,.progress-ring-value,.quiz-fill,
+  .progress-fill,.lms-progress-fill,[class*="progress-fill"]
+) { background: var(--u-orange) !important; }
+body.s4u-lms-redesign :is(.continue-course-status-dot,.status-dot) { background: var(--u-orange) !important; }
+
+/* Dashboard/account remain the visual reference, only normalize their spacing */
+body.s4u-lms-redesign.lms-dashboard-home .home-hero,
+body.s4u-lms-redesign.lms-account-page .account-header { margin-bottom: 20px !important; }
+body.s4u-lms-redesign.lms-account-page .account-layout { gap: 20px !important; }
+body.s4u-lms-redesign.lms-account-page .account-profile-summary { border-top: 4px solid var(--u-orange) !important; }
+body.s4u-lms-redesign.lms-account-page .account-nav a.active { background: var(--u-navy) !important; color: #fff !important; }
+body.s4u-lms-redesign.lms-account-page .switch input:checked + .switch-slider { background: var(--u-orange) !important; }
+
+/* Tables */
+body.s4u-lms-redesign table { width: 100%; border-collapse: separate; border-spacing: 0; }
+body.s4u-lms-redesign :is(th,td) { border-color: var(--u-line) !important; }
+body.s4u-lms-redesign th { background: #f8fafd; color: var(--u-navy-deep); }
+
+/* Responsive */
+@media (max-width: 1100px) {
+  body.s4u-lms-redesign .lms-search-wrap { display: none !important; }
+}
+@media (max-width: 860px) {
+  body.s4u-lms-redesign .lms-content,
+  body.s4u-lms-redesign .lms-notifications-content,
+  body.s4u-lms-redesign .lms-support-content,
+  body.s4u-lms-redesign .onboard-wrap {
+    width: calc(100% - 28px) !important;
+    padding-top: 20px !important;
+    padding-bottom: 40px !important;
+  }
+  body.s4u-lms-redesign .lms-topbar { padding: 0 14px !important; gap: 10px !important; }
+}
+@media (max-width: 620px) {
+  body.s4u-lms-redesign .lms-content,
+  body.s4u-lms-redesign .lms-notifications-content,
+  body.s4u-lms-redesign .lms-support-content,
+  body.s4u-lms-redesign .onboard-wrap {
+    width: calc(100% - 24px) !important;
+    padding-top: 16px !important;
+    padding-bottom: 34px !important;
+  }
+  body.s4u-lms-redesign :is(
+    .home-hero,.account-header,.assessment-hero,.certificates-hero,.course-details-hero,
+    .course-library-hero,.my-learning-hero,.progress-hero,.appointments-hero,.orders-heading,
+    .lms-notifications-intro,.lms-support-intro,.scheduler-page-head,.schedule-hero,.onboard-page-head,
+    .live-heading,.s4u-page-hero
+  ) { border-radius: 15px !important; }
+  body.s4u-lms-redesign .lms-search-shortcut { display: none !important; }
+}

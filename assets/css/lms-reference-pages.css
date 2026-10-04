@@ -1,0 +1,374 @@
+/* ============================================================
+   screenings4u Learning Center — Reference Page System
+   Visual reference: lms-dashboard.html + lms-account.html
+   IMPORTANT: this file does not style the shared topbar/sidebar.
+   lms-shell-v3.css is the final authority for the application shell.
+   ============================================================ */
+
+:root{
+  --ref-navy:#24467f;
+  --ref-navy-deep:#17335f;
+  --ref-blue:#325aa3;
+  --ref-orange:#ff6b00;
+  --ref-orange-hover:#e66000;
+  --ref-page:#f4f7fc;
+  --ref-card:#ffffff;
+  --ref-text:#172033;
+  --ref-muted:#687386;
+  --ref-line:#d9e3f0;
+  --ref-soft:#eef3f9;
+}
+
+body.s4u-reference-page{
+  background:var(--ref-page);
+  color:var(--ref-text);
+}
+
+body.s4u-reference-page .lms-main{
+  background:var(--ref-page);
+}
+
+/* Same content scale as the supplied Account reference. */
+body.s4u-reference-page .lms-content,
+body.s4u-reference-page .lms-notifications-content,
+body.s4u-reference-page .lms-support-content,
+body.s4u-reference-page .onboard-wrap{
+  width:100%;
+  max-width:1380px;
+  margin:0 auto;
+  padding:28px 32px 56px;
+}
+
+/* Breadcrumb grammar from the Account reference. */
+body.s4u-reference-page [class*="breadcrumb"]{
+  color:var(--ref-muted);
+  font-size:11px;
+  font-weight:800;
+}
+body.s4u-reference-page [class*="breadcrumb"] a{
+  color:var(--ref-blue);
+  text-decoration:none;
+}
+
+/* Shared hero treatment based on the supplied Account reference. */
+body.s4u-reference-page .assessment-hero,
+body.s4u-reference-page .certificates-hero,
+body.s4u-reference-page .course-details-hero,
+body.s4u-reference-page .courses-page-header,
+body.s4u-reference-page .live-heading,
+body.s4u-reference-page .appointments-heading,
+body.s4u-reference-page .my-learning-header,
+body.s4u-reference-page .lms-notifications-intro,
+body.s4u-reference-page .orders-heading,
+body.s4u-reference-page .progress-page-header,
+body.s4u-reference-page .scheduler-page-head,
+body.s4u-reference-page .lms-support-intro,
+body.s4u-reference-page .onboard-page-head{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  min-height:170px;
+  margin:0 0 20px;
+  padding:30px 34px;
+  border:0;
+  border-radius:20px;
+  background:linear-gradient(125deg,var(--ref-navy-deep),var(--ref-navy) 65%,var(--ref-blue));
+  color:#fff;
+  box-shadow:none;
+}
+
+body.s4u-reference-page .assessment-hero::before,
+body.s4u-reference-page .certificates-hero::before,
+body.s4u-reference-page .course-details-hero::before,
+body.s4u-reference-page .courses-page-header::before,
+body.s4u-reference-page .live-heading::before,
+body.s4u-reference-page .appointments-heading::before,
+body.s4u-reference-page .my-learning-header::before,
+body.s4u-reference-page .lms-notifications-intro::before,
+body.s4u-reference-page .orders-heading::before,
+body.s4u-reference-page .progress-page-header::before,
+body.s4u-reference-page .scheduler-page-head::before,
+body.s4u-reference-page .lms-support-intro::before,
+body.s4u-reference-page .onboard-page-head::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  right:-90px;
+  top:-130px;
+  width:330px;
+  height:330px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:50%;
+}
+
+body.s4u-reference-page .assessment-hero::after,
+body.s4u-reference-page .certificates-hero::after,
+body.s4u-reference-page .course-details-hero::after,
+body.s4u-reference-page .courses-page-header::after,
+body.s4u-reference-page .live-heading::after,
+body.s4u-reference-page .appointments-heading::after,
+body.s4u-reference-page .my-learning-header::after,
+body.s4u-reference-page .lms-notifications-intro::after,
+body.s4u-reference-page .orders-heading::after,
+body.s4u-reference-page .progress-page-header::after,
+body.s4u-reference-page .scheduler-page-head::after,
+body.s4u-reference-page .lms-support-intro::after,
+body.s4u-reference-page .onboard-page-head::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  right:120px;
+  bottom:-145px;
+  width:230px;
+  height:230px;
+  border-radius:50%;
+  background:rgba(255,107,0,.10);
+}
+
+body.s4u-reference-page .assessment-hero h1,
+body.s4u-reference-page .certificates-hero h1,
+body.s4u-reference-page .course-details-hero h1,
+body.s4u-reference-page .courses-page-header h1,
+body.s4u-reference-page .live-heading h1,
+body.s4u-reference-page .appointments-heading h1,
+body.s4u-reference-page .my-learning-header h1,
+body.s4u-reference-page .lms-notifications-intro h1,
+body.s4u-reference-page .orders-heading h1,
+body.s4u-reference-page .progress-page-header h1,
+body.s4u-reference-page .scheduler-page-head h1,
+body.s4u-reference-page .lms-support-intro h1,
+body.s4u-reference-page .onboard-page-head h1{
+  margin:0;
+  color:#fff !important;
+  -webkit-text-fill-color:#fff !important;
+  font-size:clamp(30px,3vw,42px);
+  line-height:1.05;
+  letter-spacing:-.035em;
+  font-weight:800;
+}
+
+body.s4u-reference-page .assessment-hero p,
+body.s4u-reference-page .certificates-hero p,
+body.s4u-reference-page .course-details-hero p,
+body.s4u-reference-page .courses-page-header p,
+body.s4u-reference-page .live-heading p,
+body.s4u-reference-page .appointments-heading p,
+body.s4u-reference-page .my-learning-header p,
+body.s4u-reference-page .lms-notifications-intro p,
+body.s4u-reference-page .orders-heading p,
+body.s4u-reference-page .progress-page-header p,
+body.s4u-reference-page .scheduler-page-head p,
+body.s4u-reference-page .lms-support-intro p,
+body.s4u-reference-page .onboard-page-head p{
+  max-width:760px;
+  margin:10px 0 0;
+  color:rgba(255,255,255,.84) !important;
+  -webkit-text-fill-color:rgba(255,255,255,.84) !important;
+  font-size:13px;
+  line-height:1.6;
+}
+
+/* Existing page eyebrow/kicker classes are normalized to one brand language. */
+body.s4u-reference-page .lms-eyebrow,
+body.s4u-reference-page .assessment-kicker,
+body.s4u-reference-page .certificates-kicker,
+body.s4u-reference-page .course-details-category,
+body.s4u-reference-page .courses-eyebrow,
+body.s4u-reference-page .live-eyebrow,
+body.s4u-reference-page .my-learning-kicker,
+body.s4u-reference-page .lms-notifications-eyebrow,
+body.s4u-reference-page .eyebrow,
+body.s4u-reference-page .lms-support-eyebrow,
+body.s4u-reference-page .onboard-eyebrow{
+  color:#ffb47d !important;
+  -webkit-text-fill-color:#ffb47d !important;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+/* Hero actions use the same orange/white treatment as the references. */
+body.s4u-reference-page .appointments-primary-action,
+body.s4u-reference-page .lms-support-primary,
+body.s4u-reference-page .scheduler-page-head .btn,
+body.s4u-reference-page .courses-page-header a,
+body.s4u-reference-page .live-heading a{
+  position:relative;
+  z-index:2;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:0 16px;
+  border:1px solid var(--ref-orange);
+  border-radius:9px;
+  background:var(--ref-orange);
+  color:#fff !important;
+  text-decoration:none;
+  font-size:10px;
+  font-weight:900;
+  white-space:nowrap;
+  box-shadow:none;
+}
+body.s4u-reference-page .appointments-primary-action:hover,
+body.s4u-reference-page .lms-support-primary:hover,
+body.s4u-reference-page .scheduler-page-head .btn:hover,
+body.s4u-reference-page .courses-page-header a:hover,
+body.s4u-reference-page .live-heading a:hover{
+  background:var(--ref-orange-hover);
+  border-color:var(--ref-orange-hover);
+}
+
+/* Cards and work areas: flat, bordered, no floating shadows. */
+body.s4u-reference-page .lms-widget,
+body.s4u-reference-page .lms-section,
+body.s4u-reference-page .assessment-card,
+body.s4u-reference-page .assessment-summary,
+body.s4u-reference-page .certificate-card,
+body.s4u-reference-page .certificates-section-card,
+body.s4u-reference-page .certificates-help-card,
+body.s4u-reference-page .course-details-panel,
+body.s4u-reference-page .course-card,
+body.s4u-reference-page .continue-course-card,
+body.s4u-reference-page .my-course-card,
+body.s4u-reference-page .live-card,
+body.s4u-reference-page .appointment-item,
+body.s4u-reference-page .appointments-card,
+body.s4u-reference-page .order-card,
+body.s4u-reference-page .progress-panel,
+body.s4u-reference-page .progress-stat-card,
+body.s4u-reference-page .quiz-card,
+body.s4u-reference-page .booking-card,
+body.s4u-reference-page .upload-panel,
+body.s4u-reference-page .onboard-card,
+body.s4u-reference-page .consent,
+body.s4u-reference-page .lms-notifications-panel,
+body.s4u-reference-page .lms-notification-stat,
+body.s4u-reference-page .lms-support-summary article,
+body.s4u-reference-page .lms-support-workspace,
+body.s4u-reference-page .lms-support-sidebar,
+body.s4u-reference-page .lms-support-thread{
+  border-color:var(--ref-line);
+  box-shadow:none !important;
+}
+
+/* Inputs/forms follow My Account. */
+body.s4u-reference-page input,
+body.s4u-reference-page select,
+body.s4u-reference-page textarea{
+  border-color:var(--ref-line);
+  border-radius:8px;
+}
+body.s4u-reference-page input:focus,
+body.s4u-reference-page select:focus,
+body.s4u-reference-page textarea:focus{
+  border-color:var(--ref-blue);
+  box-shadow:0 0 0 3px rgba(50,90,163,.09);
+  outline:0;
+}
+
+/* Primary actions. */
+body.s4u-reference-page .primary,
+body.s4u-reference-page .orange-btn,
+body.s4u-reference-page button[type="submit"],
+body.s4u-reference-page .lms-button-primary,
+body.s4u-reference-page .lms-primary-button{
+  background:var(--ref-orange);
+  border-color:var(--ref-orange);
+  color:#fff;
+}
+body.s4u-reference-page .primary:hover,
+body.s4u-reference-page .orange-btn:hover,
+body.s4u-reference-page button[type="submit"]:hover,
+body.s4u-reference-page .lms-button-primary:hover,
+body.s4u-reference-page .lms-primary-button:hover{
+  background:var(--ref-orange-hover);
+  border-color:var(--ref-orange-hover);
+}
+
+/* Tables. */
+body.s4u-reference-page table{
+  border-color:var(--ref-line);
+}
+body.s4u-reference-page th{
+  color:var(--ref-muted);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+
+/* Quiz header is intentionally compact instead of becoming a second hero. */
+body.s4u-reference-page .quiz-header h1{
+  color:var(--ref-navy-deep);
+  font-size:clamp(26px,3vw,36px);
+  letter-spacing:-.03em;
+}
+body.s4u-reference-page .quiz-header p{
+  color:var(--ref-muted);
+}
+
+/* Welcome uses the normal LMS shell; suppress the old extra onboarding brand bar. */
+body.s4u-reference-page.lms-onboarding-mode .onboard-brandbar{
+  display:none !important;
+}
+
+@media(max-width:900px){
+  body.s4u-reference-page .lms-content,
+  body.s4u-reference-page .lms-notifications-content,
+  body.s4u-reference-page .lms-support-content,
+  body.s4u-reference-page .onboard-wrap{
+    padding:22px 18px 44px;
+  }
+
+  body.s4u-reference-page .assessment-hero,
+  body.s4u-reference-page .certificates-hero,
+  body.s4u-reference-page .course-details-hero,
+  body.s4u-reference-page .courses-page-header,
+  body.s4u-reference-page .live-heading,
+  body.s4u-reference-page .appointments-heading,
+  body.s4u-reference-page .my-learning-header,
+  body.s4u-reference-page .lms-notifications-intro,
+  body.s4u-reference-page .orders-heading,
+  body.s4u-reference-page .progress-page-header,
+  body.s4u-reference-page .scheduler-page-head,
+  body.s4u-reference-page .lms-support-intro,
+  body.s4u-reference-page .onboard-page-head{
+    min-height:150px;
+    padding:26px;
+  }
+}
+
+@media(max-width:620px){
+  body.s4u-reference-page .lms-content,
+  body.s4u-reference-page .lms-notifications-content,
+  body.s4u-reference-page .lms-support-content,
+  body.s4u-reference-page .onboard-wrap{
+    padding:16px 12px 36px;
+  }
+
+  body.s4u-reference-page .assessment-hero,
+  body.s4u-reference-page .certificates-hero,
+  body.s4u-reference-page .course-details-hero,
+  body.s4u-reference-page .courses-page-header,
+  body.s4u-reference-page .live-heading,
+  body.s4u-reference-page .appointments-heading,
+  body.s4u-reference-page .my-learning-header,
+  body.s4u-reference-page .lms-notifications-intro,
+  body.s4u-reference-page .orders-heading,
+  body.s4u-reference-page .progress-page-header,
+  body.s4u-reference-page .scheduler-page-head,
+  body.s4u-reference-page .lms-support-intro,
+  body.s4u-reference-page .onboard-page-head{
+    min-height:145px;
+    padding:22px 18px;
+    border-radius:15px;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}

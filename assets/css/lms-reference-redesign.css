@@ -1,0 +1,19 @@
+/* LMS reference redesign — derived from lms-dashboard.html + lms-account.html */
+:root{--ref-navy:#0b2b4b;--ref-blue:#0f4c81;--ref-orange:#f59e0b;--ref-ink:#10243e;--ref-muted:#64748b;--ref-line:#e5eaf0;--ref-soft:#f6f8fb;--ref-white:#fff;--ref-radius:18px;--ref-shadow:0 10px 30px rgba(15,43,75,.07)}
+html,body{background:var(--ref-soft)}
+body:not(.lms-dashboard-home):not(.lms-account-page){color:var(--ref-ink)}
+.lms-main{min-width:0}.lms-content{width:min(100%,1440px);margin:0 auto;padding:34px 38px 54px}
+.lms-content>nav[class*="breadcrumb"]{display:flex;align-items:center;gap:8px;margin:0 0 20px;color:var(--ref-muted);font-size:13px;font-weight:700}.lms-content>nav[class*="breadcrumb"] a{color:var(--ref-blue);text-decoration:none}.lms-content>nav[class*="breadcrumb"] svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2}
+.lms-content>section[class*="hero"],.lms-content>section[class*="heading"],.lms-content>header[class*="header"],.lms-content>div[class*="page-header"]{margin:0 0 24px}
+.lms-content>section[class*="hero"] h1,.lms-content>section[class*="heading"] h1,.lms-content>header[class*="header"] h1,.lms-content>div[class*="page-header"] h1,.lms-content h1{color:var(--ref-navy);letter-spacing:-.035em}
+.lms-content>section[class*="hero"] p,.lms-content>section[class*="heading"] p,.lms-content>header[class*="header"] p,.lms-content>div[class*="page-header"] p{color:var(--ref-muted);max-width:760px}
+/* Make every functional surface use the same account/dashboard card language. */
+.lms-content section[class*="card"],.lms-content div[class*="card"],.lms-content section[class*="panel"],.lms-content div[class*="panel"],.lms-content section[class*="widget"],.lms-content div[class*="widget"],.lms-content section[class*="list"],.lms-content div[class*="list"],.lms-content .scheduler{background:var(--ref-white);border:1px solid var(--ref-line);border-radius:var(--ref-radius);box-shadow:var(--ref-shadow)}
+.lms-content button,.lms-content .btn,.lms-content a[class*="button"]{border-radius:10px;font-weight:800}.lms-content input,.lms-content select,.lms-content textarea{border:1px solid #d9e1ea;border-radius:10px;background:#fff;min-height:44px}.lms-content input:focus,.lms-content select:focus,.lms-content textarea:focus{outline:3px solid rgba(15,76,129,.12);border-color:var(--ref-blue)}
+/* Two-column pages follow My Account proportions. */
+.lms-content div[class*="layout"]{gap:26px}.lms-content aside{border-radius:var(--ref-radius)}
+/* Orange is an accent, not a page wash. */
+.lms-content [class*="kicker"],.lms-content [class*="eyebrow"]{color:#d97706;font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.lms-content [class*="progress"] [class*="fill"],.lms-content progress{accent-color:var(--ref-orange)}
+@media(max-width:900px){.lms-content{padding:24px 18px 40px}.lms-content div[class*="layout"]{grid-template-columns:1fr!important}.lms-content aside{position:static!important;width:auto!important}.lms-search-shortcut{display:none}}
+@media(max-width:600px){.lms-content{padding:20px 14px 34px}.lms-content h1{font-size:clamp(28px,9vw,38px)}.lms-content section[class*="card"],.lms-content div[class*="card"],.lms-content section[class*="panel"],.lms-content div[class*="panel"]{border-radius:14px}}

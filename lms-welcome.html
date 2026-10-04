@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html class="s4u-auth-pending" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#325aa3" name="theme-color"/>
+<title>Welcome &amp; Policies | screenings4u Learning Center</title>
+<link href="images/fav.png" rel="icon"/>
+<link href="assets/css/lms-welcome.css" rel="stylesheet"/></head>
+<body class="lms-onboarding-mode" data-s4u-portal="training">
+<div aria-label="screenings4u Learning Center" class="onboard-brandbar">
+<img alt="screenings4u" src="images/logo.png"/>
+<span aria-hidden="true" class="divider"></span>
+<span>Learning Center</span>
+<b>Required onboarding</b>
+</div>
+
+<main class="lms-main">
+<div class="onboard-wrap">
+<div class="onboard-page-head">
+<div>
+<div class="onboard-eyebrow">screenings4u Learning Center</div>
+<h1>Welcome &amp; Policies</h1>
+<p>Everything you need to know about your training account, purchases, support, DOT mock collections, documents, certificates, and the policies that apply to Learning Center purchases.</p>
+</div>
+<div class="onboard-status-pill">Learner orientation</div>
+</div>
+<section class="onboard-hero">
+<div class="onboard-hero-copy">
+<h2>Start here before beginning your training.</h2>
+<p>Your Learning Center keeps your courses, progress, order history, receipts, documents, mock-training submissions, appointments, and certificates connected to one learner account.</p>
+</div>
+<div aria-label="Training workflow" class="onboard-hero-steps">
+<div class="onboard-step"><span>1</span> Review your course and purchase</div>
+<div class="onboard-step"><span>2</span> Complete training and assessments</div>
+<div class="onboard-step"><span>3</span> Submit required mock documentation</div>
+<div class="onboard-step"><span>4</span> Receive approved certificates</div>
+</div>
+</section>
+<div class="onboard-grid">
+<section class="onboard-card"><div class="onboard-card-icon">01</div><h2>Navigate your Learning Center</h2><p><strong>My Learning</strong> contains courses you purchased or were assigned. <strong>Progress</strong> tracks completion. <strong>Certificates</strong> contains certificates issued to your account. <strong>Orders</strong> contains your Learning Center purchase history and receipts.</p></section>
+<section class="onboard-card"><div class="onboard-card-icon">02</div><h2>Support &amp; scheduling</h2><p>Use <a href="lms-support.html">Training Support</a> for course or account assistance. Use <a href="lms-schedule-appointment.html">Schedule Appointment</a> when your training requires a live session, appointment, or other assistance.</p></section>
+<section class="onboard-card"><div class="onboard-card-icon">03</div><h2>DOT mock collections</h2><p>Applicable DOT Specimen Collector learners must complete the required five mock collection sessions. After completion, upload the supporting documentation in <a href="lms-documents.html">Documents</a> for administrator review before certificate issuance.</p></section>
+<section class="onboard-card"><div class="onboard-card-icon">04</div><h2>Purchase &amp; course access</h2><p>Your course purchase, access period, extensions, and order history are tied to this account. Course extensions add time to the exact existing enrollment from which the extension was purchased.</p></section>
+<section class="onboard-card"><div class="onboard-card-icon">05</div><h2>Documents &amp; certificates</h2><p>Your <a href="lms-documents.html">Documents</a> section contains acknowledgments, learner uploads, and files provided by screenings4u. Approved certificates are available from <a href="lms-certificates.html">Certificates</a>.</p></section>
+<section class="onboard-card"><div class="onboard-card-icon">06</div><h2>Refunds &amp; legal information</h2><p><strong>Online training courses and digital products are final and non-refundable once purchased.</strong> Review the <a href="refund-policy.html">Refund Policy</a>, <a href="terms.html">Terms</a>, <a href="privacy.html">Privacy Policy</a>, and <a href="disclaimer.html">Training Disclaimer</a>.</p></section>
+</div>
+<div class="notice" role="status">
+<strong>Required before course access:</strong> Complete this acknowledgment once. Until it is submitted, Learning Center course lessons, assessments, and training materials remain locked.
+      </div>
+<section class="consent">
+<div class="consent-head">
+<div>
+<h2>Learning Center acknowledgment</h2>
+<p>Confirm your contact information and acknowledge the policies below. Your acceptance date and time are recorded with your account, and the completed acknowledgment remains available for download in Documents.</p>
+</div>
+<div class="consent-time" id="consentTimestamp">Date and time recorded on submission</div>
+</div>
+<div class="notice" hidden="" id="consentStatus"></div>
+<div class="consent-grid">
+<label>First name<input autocomplete="given-name" id="firstName" required=""/></label>
+<label>Last name<input autocomplete="family-name" id="lastName" required=""/></label>
+<label>Email<input autocomplete="email" id="email" required="" type="email"/></label>
+<label>Phone<input autocomplete="tel" id="phone" type="tel"/></label>
+</div>
+<label class="check"><input id="terms" required="" type="checkbox"/><span>I have reviewed and agree to the Learning Center <a href="terms.html" target="_blank">Terms of Use</a>.</span></label>
+<label class="check"><input id="refund" required="" type="checkbox"/><span>I understand that online training courses and digital products are final and non-refundable once purchased.</span></label>
+<label class="check"><input id="disclaimer" required="" type="checkbox"/><span>I have reviewed and understand the <a href="disclaimer.html" target="_blank">Training Disclaimer</a>.</span></label>
+<label class="check"><input id="mock" required="" type="checkbox"/><span>I understand that applicable DOT collector training requires documentation of five required mock collection sessions before certificate processing.</span></label>
+<button class="orange-btn" id="acceptBtn" type="button">Submit Onboarding</button>
+</section>
+</div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/lms-welcome.js"></script></body>
+</html>

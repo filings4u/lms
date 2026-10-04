@@ -1,0 +1,35 @@
+/* screenings4u Learning Center shell v2 — anchored to course player */
+:root{--s4u-shell:#2b5593;--s4u-shell-dark:#23477f;--s4u-orange:#ff6b00;--s4u-page:#f4f7fb;--s4u-line:#d9e2ef;--s4u-text:#14213d}
+html,body{min-height:100%;background:var(--s4u-page)}
+body{overflow-x:hidden}
+/* Fixed application shell */
+@media(min-width:861px){
+  .lms-sidebar{position:fixed!important;inset:0 auto 0 0!important;width:252px!important;height:100vh!important;z-index:1000!important;transition:transform .22s ease!important}
+  .lms-main{margin-left:252px!important;width:calc(100% - 252px)!important;min-height:100vh!important;transition:margin-left .22s ease,width .22s ease!important}
+  .lms-topbar{position:sticky!important;top:0!important;z-index:900!important}
+  body.lms-nav-collapsed .lms-sidebar{transform:none!important;width:72px!important}
+  body.lms-nav-collapsed .lms-main{margin-left:72px!important;width:calc(100% - 72px)!important}
+  body.lms-nav-collapsed .lms-topbar{width:100%!important}
+}
+/* Every normal LMS page renders inside the same bounded workspace */
+.lms-main{background:var(--s4u-page)!important}
+.lms-content{max-width:1240px!important;width:calc(100% - 48px)!important;margin:0 auto!important;padding:28px 0 44px!important}
+.lms-section,.lms-widget,.lms-card,.course-card,.certificate-card,.progress-card,.account-card,.support-card,.orders-card,.appointment-card,.document-card{border:1px solid var(--s4u-line)!important;box-shadow:0 8px 24px rgba(25,55,99,.05)!important}
+/* Onboarding is intentionally NOT inside the navigation shell. */
+body.lms-onboarding-mode{background:var(--s4u-page)!important;overflow:auto!important}
+body.lms-onboarding-mode .lms-sidebar,
+body.lms-onboarding-mode .lms-topbar{display:none!important}
+body.lms-onboarding-mode .lms-main{margin-left:0!important;width:100%!important;min-height:100vh!important}
+body.lms-onboarding-mode .onboard-wrap{width:min(1320px,calc(100% - 64px))!important;max-width:1320px!important;margin:0 auto!important;padding:42px 0 64px!important}
+body.lms-onboarding-mode .onboard-page-head{margin-bottom:22px!important}
+body.lms-onboarding-mode .onboard-hero{min-height:280px!important}
+body.lms-onboarding-mode .onboard-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+body.lms-onboarding-mode .consent{margin-bottom:20px!important}
+.onboard-brandbar{height:72px;background:var(--s4u-shell)!important;display:flex;align-items:center;padding:0 max(28px,calc((100vw - 1320px)/2));border-bottom:1px solid rgba(255,255,255,.15)}
+.onboard-brandbar img{width:145px;height:auto;display:block}.onboard-brandbar .divider{width:1px;height:28px;background:rgba(255,255,255,.28);margin:0 18px}.onboard-brandbar span{color:#fff;font-weight:800;font-size:14px}.onboard-brandbar b{color:var(--s4u-orange);text-transform:uppercase;letter-spacing:.12em;font-size:11px;margin-left:8px}
+@media(max-width:860px){
+ .lms-content{width:calc(100% - 28px)!important;padding-top:18px!important}
+ body.lms-onboarding-mode .onboard-wrap{width:calc(100% - 28px)!important;padding:24px 0 40px!important}
+ body.lms-onboarding-mode .onboard-grid{grid-template-columns:1fr!important}
+ .onboard-brandbar{height:64px;padding:0 16px}.onboard-brandbar img{width:126px}.onboard-brandbar .divider{margin:0 12px}.onboard-brandbar b{display:none}
+}

@@ -1,0 +1,328 @@
+
+/* Screenings4u Learning Center — 2026 page redesign */
+:root{
+  --s4u-blue:#24467F;
+  --s4u-blue-deep:#17335F;
+  --s4u-blue-light:#325AA3;
+  --s4u-orange:#FF6B00;
+  --s4u-orange-hover:#E66000;
+  --s4u-bg:#F4F7FC;
+  --s4u-card:#FFFFFF;
+  --s4u-text:#172033;
+  --s4u-muted:#687386;
+  --s4u-line:#D9E3F0;
+  --s4u-soft:#EEF3F9;
+}
+
+body.s4u-2026-page{
+  background:var(--s4u-bg)!important;
+  color:var(--s4u-text)!important;
+}
+
+body.s4u-2026-page .lms-main{
+  background:var(--s4u-bg)!important;
+}
+
+body.s4u-2026-page .lms-content{
+  width:min(1380px,calc(100% - 64px))!important;
+  max-width:1380px!important;
+  margin:0 auto!important;
+  padding:28px 0 56px!important;
+}
+
+/* Standard Screenings4u page hero */
+body.s4u-2026-page .s4u-page-hero{
+  position:relative;
+  overflow:hidden;
+  min-height:170px;
+  margin:0 0 20px;
+  padding:30px 34px;
+  display:flex;
+  align-items:center;
+  border-radius:20px;
+  background:linear-gradient(125deg,var(--s4u-blue-deep),var(--s4u-blue) 65%,var(--s4u-blue-light));
+  color:#fff;
+}
+
+body.s4u-2026-page .s4u-page-hero::before{
+  content:"";
+  position:absolute;
+  right:-90px;
+  top:-130px;
+  width:330px;
+  height:330px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:50%;
+}
+
+body.s4u-2026-page .s4u-page-hero::after{
+  content:"";
+  position:absolute;
+  right:120px;
+  bottom:-145px;
+  width:230px;
+  height:230px;
+  border-radius:50%;
+  background:rgba(255,107,0,.10);
+}
+
+body.s4u-2026-page .s4u-page-hero-inner{
+  position:relative;
+  z-index:1;
+}
+
+body.s4u-2026-page .s4u-page-kicker{
+  display:block;
+  margin:0 0 8px;
+  color:#FFB47D;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+body.s4u-2026-page .s4u-page-hero h1{
+  margin:0!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  font-size:clamp(32px,3vw,44px)!important;
+  line-height:1.05!important;
+  letter-spacing:-.035em!important;
+}
+
+body.s4u-2026-page .s4u-page-hero p{
+  max-width:720px;
+  margin:10px 0 0!important;
+  color:rgba(255,255,255,.86)!important;
+  -webkit-text-fill-color:rgba(255,255,255,.86)!important;
+  font-size:13px!important;
+  line-height:1.6!important;
+}
+
+/* Cards / panels */
+body.s4u-2026-page .lms-widget,
+body.s4u-2026-page .lms-section,
+body.s4u-2026-page [class*="-card"],
+body.s4u-2026-page [class*="-panel"]{
+  border-color:var(--s4u-line)!important;
+  box-shadow:none!important;
+}
+
+body.s4u-2026-page .lms-widget,
+body.s4u-2026-page .lms-section{
+  background:#fff!important;
+  border-radius:16px!important;
+}
+
+/* Form controls */
+body.s4u-2026-page input,
+body.s4u-2026-page select,
+body.s4u-2026-page textarea{
+  border-color:var(--s4u-line)!important;
+  border-radius:9px!important;
+}
+
+body.s4u-2026-page input:focus,
+body.s4u-2026-page select:focus,
+body.s4u-2026-page textarea:focus{
+  border-color:var(--s4u-blue)!important;
+  box-shadow:0 0 0 3px rgba(36,70,127,.10)!important;
+  outline:0!important;
+}
+
+/* Brand buttons */
+body.s4u-2026-page .lms-button-primary,
+body.s4u-2026-page .lms-primary-button,
+body.s4u-2026-page button[type="submit"]{
+  background:var(--s4u-orange)!important;
+  border-color:var(--s4u-orange)!important;
+  color:#fff!important;
+}
+
+body.s4u-2026-page .lms-button-primary:hover,
+body.s4u-2026-page .lms-primary-button:hover,
+body.s4u-2026-page button[type="submit"]:hover{
+  background:var(--s4u-orange-hover)!important;
+  border-color:var(--s4u-orange-hover)!important;
+}
+
+/* Topbar: brand colors and NO white hover overlay */
+body.s4u-2026-page .lms-icon-button,
+body.s4u-2026-page .lms-icon-button:hover,
+body.s4u-2026-page .lms-icon-button:focus,
+body.s4u-2026-page .lms-icon-button:active,
+body.s4u-2026-page .lms-user-button,
+body.s4u-2026-page .lms-user-button:hover,
+body.s4u-2026-page .lms-user-button:focus,
+body.s4u-2026-page .lms-user-button:active,
+body.s4u-2026-page .lms-user-menu-trigger,
+body.s4u-2026-page .lms-user-menu-trigger:hover,
+body.s4u-2026-page .lms-user-menu-trigger:focus,
+body.s4u-2026-page .lms-user-menu-trigger:active{
+  background:transparent!important;
+  background-color:transparent!important;
+  box-shadow:none!important;
+  outline:none!important;
+}
+
+body.s4u-2026-page .lms-icon-button,
+body.s4u-2026-page .lms-icon-button svg,
+body.s4u-2026-page .lms-user-name,
+body.s4u-2026-page .lms-user-chevron,
+body.s4u-2026-page .lms-user-chevron svg{
+  color:#fff!important;
+  stroke:#fff!important;
+}
+
+body.s4u-2026-page .lms-user-avatar{
+  background:#fff!important;
+  color:var(--s4u-blue)!important;
+  border-color:#fff!important;
+}
+
+body.s4u-2026-page .lms-notification-dot{
+  background:var(--s4u-orange)!important;
+  border-color:var(--s4u-blue)!important;
+}
+
+@media(max-width:900px){
+  body.s4u-2026-page .lms-content{
+    width:calc(100% - 32px)!important;
+    padding:22px 0 42px!important;
+  }
+  body.s4u-2026-page .s4u-page-hero{
+    min-height:150px;
+    padding:26px;
+  }
+}
+
+@media(max-width:620px){
+  body.s4u-2026-page .lms-content{
+    width:calc(100% - 24px)!important;
+    padding:16px 0 36px!important;
+  }
+  body.s4u-2026-page .s4u-page-hero{
+    min-height:145px;
+    padding:22px 18px;
+    border-radius:15px;
+  }
+}
+
+
+.dashboard-grid,.dashboard-layout,.dashboard-widgets{gap:20px!important}
+.dashboard-card,.dashboard-widget{border:1px solid var(--s4u-line)!important;border-radius:16px!important;background:#fff!important}
+
+
+/* ==========================================================
+   SCREENINGS4U — APPROVED ACCOUNT-PAGE VISUAL SCALE
+   ========================================================== */
+@media (min-width:1101px){
+
+  body.s4u-2026-page .lms-content{
+    width:min(1380px,calc(100% - 56px))!important;
+    max-width:1380px!important;
+    padding-top:32px!important;
+  }
+
+  body.s4u-2026-page .s4u-page-hero{
+    min-height:190px!important;
+    padding:36px 40px!important;
+    margin-bottom:26px!important;
+  }
+
+  body.s4u-2026-page .s4u-page-kicker{
+    font-size:11px!important;
+    margin-bottom:10px!important;
+  }
+
+  body.s4u-2026-page .s4u-page-hero h1{
+    font-size:46px!important;
+  }
+
+  body.s4u-2026-page .s4u-page-hero p{
+    max-width:780px!important;
+    margin-top:12px!important;
+    font-size:14px!important;
+  }
+
+  body.s4u-2026-page h2{
+    font-size:22px!important;
+    line-height:1.25!important;
+  }
+
+  body.s4u-2026-page h3{
+    font-size:18px!important;
+    line-height:1.3!important;
+  }
+
+  body.s4u-2026-page p,
+  body.s4u-2026-page li{
+    font-size:13px;
+    line-height:1.55;
+  }
+
+  body.s4u-2026-page .lms-widget,
+  body.s4u-2026-page .lms-section,
+  body.s4u-2026-page [class*="-panel"]{
+    border-radius:18px!important;
+  }
+
+  body.s4u-2026-page button,
+  body.s4u-2026-page .btn,
+  body.s4u-2026-page [class*="button"]{
+    min-height:44px;
+    font-size:12px!important;
+  }
+
+  body.s4u-2026-page input,
+  body.s4u-2026-page select{
+    min-height:46px!important;
+    font-size:13px!important;
+  }
+
+  body.s4u-2026-page textarea{
+    font-size:13px!important;
+  }
+
+  /* Course pages */
+  body.s4u-2026-page .course-library-grid,
+  body.s4u-2026-page .lms-course-grid,
+  body.s4u-2026-page .courses-grid,
+  body.s4u-2026-page .my-learning-grid{
+    gap:24px!important;
+  }
+
+  body.s4u-2026-page .lms-course-card,
+  body.s4u-2026-page .course-card,
+  body.s4u-2026-page .continue-course-card{
+    min-width:0!important;
+    border-radius:18px!important;
+  }
+
+  body.s4u-2026-page .course-card h3,
+  body.s4u-2026-page .lms-course-card h3,
+  body.s4u-2026-page .continue-course-card h3{
+    font-size:18px!important;
+  }
+
+  /* Prevent My Courses cards from remaining tiny fixed-width tiles */
+  body.s4u-2026-my-courses .courses-grid,
+  body.s4u-2026-my-courses .lms-course-grid,
+  body.s4u-2026-my-courses .my-learning-grid{
+    grid-template-columns:repeat(auto-fit,minmax(330px,1fr))!important;
+  }
+
+  body.s4u-2026-my-courses .course-card,
+  body.s4u-2026-my-courses .lms-course-card,
+  body.s4u-2026-my-courses .continue-course-card{
+    width:100%!important;
+    max-width:none!important;
+    min-height:300px!important;
+  }
+
+  /* Generic section spacing */
+  body.s4u-2026-page main section + section,
+  body.s4u-2026-page .lms-content > div + div{
+    margin-top:22px;
+  }
+}

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="s4u-auth-pending" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<meta content="#24467f" name="theme-color"/>
+<title>Support | screenings4u Learning Center</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+<!-- Support page only -->
+<link href="assets/css/lms-support.css" rel="stylesheet"/></head>
+<body class="lms-support-page lms-reference-redesign s4u-lms-redesign" data-s4u-portal="training">
+
+<main class="lms-main">
+<!-- SAME branded LMS topbar used by the dashboard -->
+<div class="support-content">
+<nav aria-label="Breadcrumb" class="support-breadcrumb">
+<a href="lms-dashboard.html">Home</a>
+<span aria-hidden="true">›</span>
+<span>Support</span>
+</nav>
+<section aria-labelledby="supportTitle" class="support-hero">
+<div class="support-hero-copy">
+<div class="support-eyebrow">SCREENINGS4U LEARNING CENTER</div>
+<h1 id="supportTitle">Training Support</h1>
+<p>Send our team a training support request, continue an existing conversation, or start a live support message.</p>
+<button class="support-primary support-hero-button" id="new-ticket-btn" type="button">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>
+              New Support Ticket
+            </button>
+</div>
+<div aria-label="Support activity" class="support-hero-summary">
+<div class="support-hero-summary-head">
+<div aria-hidden="true" class="support-hero-icon">
+<svg viewbox="0 0 24 24">
+<path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
+<path d="M8 9h8M8 13h5"></path>
+</svg>
+</div>
+<div>
+<span>SUPPORT ACTIVITY</span>
+<strong>Your conversations</strong>
+</div>
+</div>
+<div class="support-hero-metrics">
+<div><strong id="support-open-count">0</strong><span>Open tickets</span></div>
+<div><strong id="support-message-count">0</strong><span>Conversations</span></div>
+<div><strong id="support-reply-count">0</strong><span>Replies</span></div>
+</div>
+</div>
+</section>
+<div aria-live="polite" class="support-message" hidden="" id="supportMessage"></div>
+<section aria-labelledby="supportWorkspaceTitle" class="support-card support-workspace">
+<header class="support-card-head support-workspace-head">
+<div>
+<div class="support-section-kicker">HELP CENTER</div>
+<h2 id="supportWorkspaceTitle">Support Conversations</h2>
+<p>Review tickets and live support conversations in one place.</p>
+</div>
+<div class="support-head-actions">
+<label class="support-search">
+<span class="sr-only">Search support conversations</span>
+<svg aria-hidden="true" viewbox="0 0 24 24">
+<circle cx="11" cy="11" r="6"></circle>
+<path d="m20 20-4-4"></path>
+</svg>
+<input autocomplete="off" id="supportSearch" placeholder="Search conversations..." type="search"/>
+</label>
+<button class="support-secondary" id="start-chat-btn" type="button">Start Live Chat</button>
+</div>
+</header>
+<div aria-label="Support conversation filters" class="support-tabs" role="tablist">
+<button aria-selected="true" class="is-active" data-support-tab="all" role="tab" type="button">All</button>
+<button aria-selected="false" data-support-tab="tickets" role="tab" type="button">Tickets</button>
+<button aria-selected="false" data-support-tab="chat" role="tab" type="button">Live Chat</button>
+</div>
+<div class="support-workspace-grid">
+<aside aria-label="Support conversations" class="support-conversation-panel">
+<div class="support-conversations" id="support-conversations">
+<div class="support-loading">
+<span aria-hidden="true" class="support-spinner"></span>
+<span>Loading support…</span>
+</div>
+</div>
+</aside>
+<section aria-live="polite" class="support-thread-panel">
+<div class="support-thread-empty" id="support-thread-empty">
+<div aria-hidden="true" class="support-empty-icon">
+<svg viewbox="0 0 24 24">
+<path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
+<path d="M8 9h8M8 13h5"></path>
+</svg>
+</div>
+<h3>Select a conversation</h3>
+<p>Choose a ticket or live support conversation to view its messages and reply.</p>
+</div>
+<div hidden="" id="support-thread-view">
+<header class="support-thread-header">
+<div>
+<div class="support-thread-meta-row">
+<span class="support-thread-type" id="support-thread-type">TRAINING SUPPORT</span>
+<span class="support-status-badge" id="support-thread-status"></span>
+</div>
+<h3 id="support-thread-subject">Conversation</h3>
+<p id="support-thread-detail"></p>
+</div>
+</header>
+<div class="support-messages" id="support-messages"></div>
+<form class="support-reply" id="support-reply-form">
+<label for="support-reply-body">Reply</label>
+<textarea id="support-reply-body" maxlength="5000" placeholder="Type your reply..." rows="3"></textarea>
+<div class="support-attachment-row">
+<input accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp,application/pdf,image/jpeg,image/png,image/webp,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="support-file-input" id="reply-attachments" multiple="" type="file"/>
+<button aria-label="Attach documents or images" class="support-attachment-button" id="reply-attachment-button" title="Attach documents or images" type="button">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M21.4 11.6 12 21a6 6 0 0 1-8.5-8.5l9.2-9.2a4 4 0 1 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8l8.5-8.5"></path></svg>
+                      Attach
+                    </button>
+<span class="support-attachment-help">PDF, Word, JPG, PNG or WebP · up to 25 MB each</span>
+</div>
+<div class="support-selected-files" id="reply-selected-files"></div>
+<div class="support-reply-actions">
+<small>Messages are shared securely with the screenings4u support team.</small>
+<button class="support-primary" type="submit">Send Reply</button>
+</div>
+</form>
+</div>
+</section>
+</div>
+</section>
+<section aria-label="Support email" class="support-contact">
+<div aria-hidden="true" class="support-contact-icon">
+<svg viewbox="0 0 24 24"><path d="M4 5h16v14H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
+</div>
+<div>
+<strong>Need immediate assistance?</strong>
+<p>You can also contact the screenings4u support team by email.</p>
+</div>
+<a href="https://screenings4u.com/contact.html">support@screenings4u.com</a>
+</section>
+</div>
+</main>
+
+<!-- New support ticket -->
+<div class="support-modal" hidden="" id="ticket-modal">
+<div class="support-modal-backdrop" data-close-modal=""></div>
+<div aria-labelledby="ticket-modal-title" aria-modal="true" class="support-modal-card" role="dialog">
+<button aria-label="Close" class="support-modal-close" data-close-modal="" type="button">×</button>
+<div class="support-section-kicker">NEW REQUEST</div>
+<h2 id="ticket-modal-title">Create Training Support Ticket</h2>
+<p class="support-modal-intro">Tell us what you need help with and our support team will respond here.</p>
+<form id="ticket-form">
+<label>
+<span>Subject</span>
+<input id="ticket-subject" maxlength="160" required=""/>
+</label>
+<div class="support-form-grid">
+<label>
+<span>Category</span>
+<select id="ticket-category">
+<option value="training">Training / Course</option>
+<option value="course_access">Course Access</option>
+<option value="lesson">Lesson / Content</option>
+<option value="assessment">Quiz / Assessment</option>
+<option value="certificate">Certificate</option>
+<option value="technical">Technical</option>
+<option value="account">Account</option>
+<option value="general">General Support</option>
+</select>
+</label>
+<label>
+<span>Priority</span>
+<select id="ticket-priority">
+<option value="normal">Normal</option>
+<option value="high">High</option>
+<option value="urgent">Urgent</option>
+</select>
+</label>
+</div>
+<label>
+<span>How can we help?</span>
+<textarea id="ticket-body" maxlength="5000" required="" rows="6"></textarea>
+</label>
+<div class="support-ticket-attachments">
+<input accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp,application/pdf,image/jpeg,image/png,image/webp,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="support-file-input" id="ticket-attachments" multiple="" type="file"/>
+<button aria-label="Attach documents or images" class="support-attachment-button" id="ticket-attachment-button" type="button">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M21.4 11.6 12 21a6 6 0 0 1-8.5-8.5l9.2-9.2a4 4 0 1 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8l8.5-8.5"></path></svg>
+            Attach documents or images
+          </button>
+<span class="support-attachment-help">PDF, Word, JPG, PNG or WebP · up to 5 files · 25 MB each</span>
+<div class="support-selected-files" id="ticket-selected-files"></div>
+</div>
+<div class="support-modal-actions">
+<button class="support-secondary" data-close-modal="" type="button">Cancel</button>
+<button class="support-primary" type="submit">Submit Ticket</button>
+</div>
+</form>
+</div>
+</div>
+<!-- New live support conversation -->
+<div class="support-modal" hidden="" id="chat-modal">
+<div class="support-modal-backdrop" data-close-chat=""></div>
+<div aria-labelledby="chat-modal-title" aria-modal="true" class="support-modal-card" role="dialog">
+<button aria-label="Close" class="support-modal-close" data-close-chat="" type="button">×</button>
+<div class="support-section-kicker">LIVE SUPPORT</div>
+<h2 id="chat-modal-title">Start a Training Conversation</h2>
+<p class="support-modal-intro">Start a support message and continue the conversation from this page.</p>
+<form id="chat-form">
+<label>
+<span>Topic</span>
+<input id="chat-subject" maxlength="160" value="Training Support"/>
+</label>
+<label>
+<span>Message</span>
+<textarea id="chat-body" maxlength="5000" placeholder="Tell us how we can help with your training..." required="" rows="6"></textarea>
+</label>
+<div class="support-modal-actions">
+<button class="support-secondary" data-close-chat="" type="button">Cancel</button>
+<button class="support-primary" type="submit">Start Chat</button>
+</div>
+</form>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Shared Learning Center behavior: same auth/nav/header/user menu as dashboard -->
+<!-- Support page functionality -->
+<script src="assets/js/lms-support.js"></script></body>
+</html>

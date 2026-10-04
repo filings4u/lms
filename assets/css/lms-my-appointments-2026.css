@@ -1,0 +1,839 @@
+/* ============================================================
+   SCREENINGS4U LMS — MY APPOINTMENTS
+   CSS-ONLY REDESIGN
+   Keeps existing HTML + JavaScript hooks unchanged.
+   Load this stylesheet LAST on lms-my-appointments.html.
+   ============================================================ */
+
+:root{
+  --appt-blue:#24467f;
+  --appt-blue-deep:#163766;
+  --appt-blue-soft:#eef4fb;
+  --appt-orange:#ff6b00;
+  --appt-orange-hover:#e85f00;
+  --appt-text:#102c55;
+  --appt-muted:#63748c;
+  --appt-line:#d8e2ef;
+  --appt-bg:#f4f7fb;
+  --appt-white:#ffffff;
+  --appt-green:#147a50;
+  --appt-green-bg:#eaf7f1;
+  --appt-red:#b93a35;
+  --appt-red-bg:#fff1f0;
+  --appt-yellow:#946700;
+  --appt-yellow-bg:#fff7dd;
+}
+
+/* ---------- page canvas ---------- */
+body.lms-reference-redesign .lms-content.appointments-page{
+  width:min(1380px,calc(100% - 56px))!important;
+  max-width:1380px!important;
+  margin:0 auto!important;
+  padding:28px 0 46px!important;
+}
+
+/* ---------- hero / heading ---------- */
+body.lms-reference-redesign .appointments-heading{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center!important;
+  gap:28px;
+  min-height:190px;
+  margin:0 0 20px!important;
+  padding:34px 38px!important;
+  border:0!important;
+  border-radius:20px!important;
+  background:
+    linear-gradient(118deg,var(--appt-blue-deep) 0%,var(--appt-blue) 67%,#315c9b 100%)!important;
+  box-shadow:none!important;
+}
+
+body.lms-reference-redesign .appointments-heading::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  width:310px;
+  height:310px;
+  right:-120px;
+  top:-155px;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:50%;
+}
+
+body.lms-reference-redesign .appointments-heading::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  width:230px;
+  height:230px;
+  right:110px;
+  bottom:-150px;
+  border-radius:50%;
+  background:rgba(255,107,0,.11);
+}
+
+body.lms-reference-redesign .appointments-heading > div{
+  min-width:0;
+  position:relative;
+  z-index:1;
+}
+
+body.lms-reference-redesign .appointments-heading .lms-eyebrow{
+  margin:0 0 9px!important;
+  color:#ffb47d!important;
+  font-size:10px!important;
+  font-weight:900!important;
+  letter-spacing:.14em!important;
+  text-transform:uppercase!important;
+}
+
+body.lms-reference-redesign .appointments-heading .lms-page-title{
+  margin:0!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  font-size:clamp(38px,4vw,58px)!important;
+  line-height:1.02!important;
+  letter-spacing:-.045em!important;
+  font-weight:800!important;
+}
+
+body.lms-reference-redesign .appointments-lead{
+  max-width:760px;
+  margin:12px 0 0!important;
+  color:rgba(255,255,255,.86)!important;
+  font-size:14px!important;
+  line-height:1.6!important;
+}
+
+/* main CTA */
+body.lms-reference-redesign .appointments-primary-action{
+  position:relative;
+  z-index:1;
+  display:inline-flex!important;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:0 20px!important;
+  border:1px solid var(--appt-orange)!important;
+  border-radius:10px!important;
+  background:var(--appt-orange)!important;
+  color:#fff!important;
+  text-decoration:none!important;
+  font-size:12px!important;
+  font-weight:800!important;
+  line-height:1!important;
+  white-space:nowrap;
+  box-shadow:none!important;
+  transition:background .18s ease,border-color .18s ease,transform .18s ease;
+}
+
+body.lms-reference-redesign .appointments-primary-action:hover{
+  background:var(--appt-orange-hover)!important;
+  border-color:var(--appt-orange-hover)!important;
+  transform:translateY(-1px);
+}
+
+/* ---------- live message ---------- */
+body.lms-reference-redesign .appointments-message{
+  margin:0 0 16px!important;
+  padding:12px 15px!important;
+  border:1px solid var(--appt-line)!important;
+  border-left:4px solid var(--appt-blue)!important;
+  border-radius:11px!important;
+  background:#fff!important;
+  color:var(--appt-text)!important;
+  font-size:12px!important;
+  line-height:1.5!important;
+}
+
+/* ---------- appointments panel ---------- */
+body.lms-reference-redesign .appointments-card{
+  overflow:hidden;
+  margin:0!important;
+  padding:0!important;
+  border:1px solid var(--appt-line)!important;
+  border-radius:18px!important;
+  background:#fff!important;
+  box-shadow:none!important;
+}
+
+body.lms-reference-redesign .appointments-card-head{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:22px;
+  padding:22px 25px!important;
+  border-bottom:1px solid var(--appt-line)!important;
+  background:#fff!important;
+}
+
+body.lms-reference-redesign .appointments-card-head > div{
+  min-width:0;
+}
+
+body.lms-reference-redesign .appointments-card-head h2{
+  margin:0!important;
+  color:var(--appt-text)!important;
+  font-size:23px!important;
+  line-height:1.2!important;
+  letter-spacing:-.025em!important;
+}
+
+body.lms-reference-redesign .appointments-card-head p{
+  max-width:760px;
+  margin:6px 0 0!important;
+  color:var(--appt-muted)!important;
+  font-size:12px!important;
+  line-height:1.55!important;
+}
+
+body.lms-reference-redesign .appointments-count{
+  flex:0 0 auto;
+  display:inline-flex!important;
+  align-items:center;
+  justify-content:center;
+  min-width:42px;
+  height:34px;
+  padding:0 12px!important;
+  border:1px solid #cbd9eb!important;
+  border-radius:999px!important;
+  background:var(--appt-blue-soft)!important;
+  color:var(--appt-blue)!important;
+  font-size:12px!important;
+  font-weight:900!important;
+}
+
+/* ---------- list ---------- */
+body.lms-reference-redesign .appointments-list{
+  display:grid!important;
+  gap:12px!important;
+  padding:16px!important;
+  background:var(--appt-bg)!important;
+}
+
+/* Loading */
+body.lms-reference-redesign .appointments-loading{
+  display:flex!important;
+  min-height:180px;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:11px;
+  padding:30px!important;
+  border:1px dashed #cbd8e8!important;
+  border-radius:14px!important;
+  background:#fff!important;
+  color:var(--appt-muted)!important;
+  text-align:center;
+}
+
+body.lms-reference-redesign .appointments-loading p{
+  margin:0!important;
+  color:var(--appt-muted)!important;
+  font-size:12px!important;
+}
+
+body.lms-reference-redesign .appointments-spinner{
+  width:30px!important;
+  height:30px!important;
+  border:3px solid #dce6f2!important;
+  border-top-color:var(--appt-orange)!important;
+  border-radius:50%!important;
+  animation:appt-spin .75s linear infinite!important;
+}
+
+@keyframes appt-spin{to{transform:rotate(360deg)}}
+
+/* Rendered appointment records:
+   supports the common classes already used by the scheduler scripts,
+   plus direct children so no JS rewrite is required. */
+body.lms-reference-redesign .appointments-list > .appointment-card,
+body.lms-reference-redesign .appointments-list > .appointment-item,
+body.lms-reference-redesign .appointments-list > .appointment,
+body.lms-reference-redesign .appointments-list > .appt,
+body.lms-reference-redesign .appointments-list > article,
+body.lms-reference-redesign .appointments-list > div:not(.appointments-loading):not([hidden]){
+  position:relative;
+  min-width:0;
+  padding:18px 19px!important;
+  border:1px solid var(--appt-line)!important;
+  border-radius:14px!important;
+  background:#fff!important;
+  box-shadow:none!important;
+}
+
+body.lms-reference-redesign .appointments-list > .appointment-card::before,
+body.lms-reference-redesign .appointments-list > .appointment-item::before,
+body.lms-reference-redesign .appointments-list > .appointment::before,
+body.lms-reference-redesign .appointments-list > .appt::before,
+body.lms-reference-redesign .appointments-list > article::before{
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:4px;
+  border-radius:14px 0 0 14px;
+  background:var(--appt-blue);
+}
+
+/* Typical generated text */
+body.lms-reference-redesign .appointments-list h3,
+body.lms-reference-redesign .appointments-list h4{
+  margin:0 0 6px!important;
+  color:var(--appt-text)!important;
+  font-size:16px!important;
+  line-height:1.35!important;
+  letter-spacing:-.012em!important;
+}
+
+body.lms-reference-redesign .appointments-list p{
+  margin:3px 0!important;
+  color:var(--appt-muted)!important;
+  font-size:11px!important;
+  line-height:1.5!important;
+}
+
+body.lms-reference-redesign .appointments-list a{
+  overflow-wrap:anywhere;
+}
+
+/* date/time blocks often emitted by appointment renderers */
+body.lms-reference-redesign .appointment-date,
+body.lms-reference-redesign .appointment-time,
+body.lms-reference-redesign .appointment-meta,
+body.lms-reference-redesign .appt-meta,
+body.lms-reference-redesign .appointments-meta{
+  color:var(--appt-muted)!important;
+  font-size:11px!important;
+  line-height:1.45!important;
+}
+
+/* Status chips */
+body.lms-reference-redesign .appointment-status,
+body.lms-reference-redesign .appt-status,
+body.lms-reference-redesign .status-badge,
+body.lms-reference-redesign .appointments-status{
+  display:inline-flex!important;
+  align-items:center;
+  width:max-content;
+  min-height:26px;
+  padding:0 10px!important;
+  border:1px solid #cbd9eb!important;
+  border-radius:999px!important;
+  background:var(--appt-blue-soft)!important;
+  color:var(--appt-blue)!important;
+  font-size:9px!important;
+  font-weight:900!important;
+  letter-spacing:.06em!important;
+  text-transform:uppercase!important;
+}
+
+body.lms-reference-redesign [class*="status"][class*="confirm"],
+body.lms-reference-redesign [class*="status"][class*="complete"]{
+  border-color:#c7e8d8!important;
+  background:var(--appt-green-bg)!important;
+  color:var(--appt-green)!important;
+}
+
+body.lms-reference-redesign [class*="status"][class*="cancel"]{
+  border-color:#efc9c6!important;
+  background:var(--appt-red-bg)!important;
+  color:var(--appt-red)!important;
+}
+
+body.lms-reference-redesign [class*="status"][class*="pending"]{
+  border-color:#eadba6!important;
+  background:var(--appt-yellow-bg)!important;
+  color:var(--appt-yellow)!important;
+}
+
+/* Actions inside rendered appointments */
+body.lms-reference-redesign .appointment-actions,
+body.lms-reference-redesign .appt-actions,
+body.lms-reference-redesign .appointments-actions{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:8px!important;
+  flex-wrap:wrap!important;
+}
+
+body.lms-reference-redesign .appointments-list button,
+body.lms-reference-redesign .appointments-list .btn,
+body.lms-reference-redesign .appointments-list .button,
+body.lms-reference-redesign .appointments-list a[class*="btn"],
+body.lms-reference-redesign .appointments-list a[class*="button"]{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px!important;
+  padding:0 13px!important;
+  border:1px solid #cad8e8!important;
+  border-radius:9px!important;
+  background:#fff!important;
+  color:var(--appt-blue)!important;
+  font-size:10px!important;
+  font-weight:800!important;
+  text-decoration:none!important;
+  box-shadow:none!important;
+}
+
+body.lms-reference-redesign .appointments-list button:hover,
+body.lms-reference-redesign .appointments-list .btn:hover,
+body.lms-reference-redesign .appointments-list .button:hover,
+body.lms-reference-redesign .appointments-list a[class*="btn"]:hover,
+body.lms-reference-redesign .appointments-list a[class*="button"]:hover{
+  background:var(--appt-blue-soft)!important;
+  border-color:#b8cbe2!important;
+}
+
+/* Join/Teams action gets primary treatment when script supplies a matching class/title */
+body.lms-reference-redesign .appointments-list [class*="join"],
+body.lms-reference-redesign .appointments-list [class*="meeting"],
+body.lms-reference-redesign .appointments-list a[href*="teams.microsoft"],
+body.lms-reference-redesign .appointments-list a[href*="teams.live"]{
+  border-color:var(--appt-orange)!important;
+  background:var(--appt-orange)!important;
+  color:#fff!important;
+}
+
+body.lms-reference-redesign .appointments-list [class*="join"]:hover,
+body.lms-reference-redesign .appointments-list [class*="meeting"]:hover,
+body.lms-reference-redesign .appointments-list a[href*="teams.microsoft"]:hover,
+body.lms-reference-redesign .appointments-list a[href*="teams.live"]:hover{
+  border-color:var(--appt-orange-hover)!important;
+  background:var(--appt-orange-hover)!important;
+  color:#fff!important;
+}
+
+/* Cancel/destructive action */
+body.lms-reference-redesign .appointments-list [class*="cancel"]{
+  color:var(--appt-red)!important;
+}
+
+body.lms-reference-redesign .appointments-list button[class*="cancel"]{
+  border-color:#e8c2bf!important;
+  background:#fff!important;
+}
+
+/* Empty state */
+body.lms-reference-redesign .appointments-empty,
+body.lms-reference-redesign .appointments-list .empty-state,
+body.lms-reference-redesign .appointments-list [class*="empty"]{
+  display:grid!important;
+  place-items:center;
+  min-height:220px;
+  padding:34px 22px!important;
+  border:1px dashed #cbd8e8!important;
+  border-radius:14px!important;
+  background:#fff!important;
+  text-align:center!important;
+}
+
+body.lms-reference-redesign .appointments-empty h3,
+body.lms-reference-redesign .appointments-list .empty-state h3,
+body.lms-reference-redesign .appointments-list [class*="empty"] h3{
+  margin:0 0 7px!important;
+  color:var(--appt-text)!important;
+  font-size:18px!important;
+}
+
+body.lms-reference-redesign .appointments-empty p,
+body.lms-reference-redesign .appointments-list .empty-state p,
+body.lms-reference-redesign .appointments-list [class*="empty"] p{
+  max-width:520px;
+  margin:0!important;
+  color:var(--appt-muted)!important;
+}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  body.lms-reference-redesign .lms-content.appointments-page{
+    width:calc(100% - 32px)!important;
+    padding:22px 0 40px!important;
+  }
+
+  body.lms-reference-redesign .appointments-heading{
+    grid-template-columns:1fr;
+    min-height:0;
+    padding:28px!important;
+  }
+
+  body.lms-reference-redesign .appointments-primary-action{
+    width:max-content;
+  }
+}
+
+@media(max-width:620px){
+  body.lms-reference-redesign .lms-content.appointments-page{
+    width:100%!important;
+    padding:15px 13px 34px!important;
+  }
+
+  body.lms-reference-redesign .appointments-heading{
+    gap:20px;
+    padding:24px 19px!important;
+    border-radius:15px!important;
+  }
+
+  body.lms-reference-redesign .appointments-heading .lms-page-title{
+    font-size:35px!important;
+  }
+
+  body.lms-reference-redesign .appointments-lead{
+    font-size:13px!important;
+  }
+
+  body.lms-reference-redesign .appointments-primary-action{
+    width:100%;
+    min-height:46px;
+  }
+
+  body.lms-reference-redesign .appointments-card{
+    border-radius:14px!important;
+  }
+
+  body.lms-reference-redesign .appointments-card-head{
+    align-items:flex-start!important;
+    padding:18px!important;
+  }
+
+  body.lms-reference-redesign .appointments-card-head h2{
+    font-size:20px!important;
+  }
+
+  body.lms-reference-redesign .appointments-list{
+    gap:10px!important;
+    padding:11px!important;
+  }
+
+  body.lms-reference-redesign .appointments-list > .appointment-card,
+  body.lms-reference-redesign .appointments-list > .appointment-item,
+  body.lms-reference-redesign .appointments-list > .appointment,
+  body.lms-reference-redesign .appointments-list > .appt,
+  body.lms-reference-redesign .appointments-list > article,
+  body.lms-reference-redesign .appointments-list > div:not(.appointments-loading):not([hidden]){
+    padding:16px!important;
+  }
+
+  body.lms-reference-redesign .appointment-actions,
+  body.lms-reference-redesign .appt-actions,
+  body.lms-reference-redesign .appointments-actions{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    width:100%!important;
+    margin-top:12px!important;
+  }
+
+  body.lms-reference-redesign .appointment-actions > *,
+  body.lms-reference-redesign .appt-actions > *,
+  body.lms-reference-redesign .appointments-actions > *{
+    width:100%!important;
+  }
+}
+
+@media(max-width:420px){
+  body.lms-reference-redesign .appointments-card-head{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    gap:12px!important;
+  }
+}
+
+
+/* ============================================================
+   FINAL CASCADE OVERRIDE
+   This block intentionally uses higher specificity because
+   lms-reference-pages-2026.css is loaded after this file.
+   No HTML or JS changes required.
+   ============================================================ */
+
+html body.lms-reference-redesign .lms-app .lms-main > .lms-content.appointments-page{
+  width:min(1380px,calc(100% - 56px))!important;
+  max-width:1380px!important;
+  margin:0 auto!important;
+  padding:30px 0 48px!important;
+  background:transparent!important;
+}
+
+/* Force the page heading back into the branded hero */
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+section.appointments-heading.lms-page-heading{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  align-items:center!important;
+  gap:30px!important;
+  width:100%!important;
+  min-height:188px!important;
+  margin:0 0 20px!important;
+  padding:34px 38px!important;
+  border:0!important;
+  border-radius:20px!important;
+  background:linear-gradient(118deg,#183a6d 0%,#24467f 66%,#315c9b 100%)!important;
+  background-color:#24467f!important;
+  box-shadow:none!important;
+}
+
+/* decorative hero shapes */
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+section.appointments-heading.lms-page-heading::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:-1!important;
+  width:330px!important;
+  height:330px!important;
+  right:-120px!important;
+  top:-160px!important;
+  border:1px solid rgba(255,255,255,.14)!important;
+  border-radius:50%!important;
+  background:transparent!important;
+}
+
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+section.appointments-heading.lms-page-heading::after{
+  content:""!important;
+  position:absolute!important;
+  z-index:-1!important;
+  width:235px!important;
+  height:235px!important;
+  right:115px!important;
+  bottom:-150px!important;
+  border-radius:50%!important;
+  background:rgba(255,107,0,.12)!important;
+}
+
+/* left hero content */
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+section.appointments-heading.lms-page-heading > div{
+  position:relative!important;
+  z-index:2!important;
+  min-width:0!important;
+}
+
+/* Later reference CSS changes the eyebrow copy/style; force branded appearance */
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+section.appointments-heading.lms-page-heading .lms-eyebrow{
+  display:block!important;
+  margin:0 0 9px!important;
+  padding:0!important;
+  color:#ffb47d!important;
+  -webkit-text-fill-color:#ffb47d!important;
+  background:transparent!important;
+  font-size:10px!important;
+  line-height:1.2!important;
+  font-weight:900!important;
+  letter-spacing:.14em!important;
+  text-transform:uppercase!important;
+}
+
+/* title */
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+section.appointments-heading.lms-page-heading h1.lms-page-title{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  background:none!important;
+  font-size:clamp(40px,4vw,58px)!important;
+  line-height:1.02!important;
+  font-weight:800!important;
+  letter-spacing:-.045em!important;
+  text-shadow:none!important;
+}
+
+/* description */
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+section.appointments-heading.lms-page-heading p.appointments-lead{
+  display:block!important;
+  max-width:760px!important;
+  margin:12px 0 0!important;
+  padding:0!important;
+  color:rgba(255,255,255,.88)!important;
+  -webkit-text-fill-color:rgba(255,255,255,.88)!important;
+  background:transparent!important;
+  opacity:1!important;
+  font-size:14px!important;
+  line-height:1.6!important;
+}
+
+/* Restore Schedule Appointment button if generic/reference CSS hides it */
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+section.appointments-heading.lms-page-heading > a.appointments-primary-action{
+  position:relative!important;
+  z-index:3!important;
+  display:inline-flex!important;
+  visibility:visible!important;
+  opacity:1!important;
+  align-items:center!important;
+  justify-content:center!important;
+  align-self:center!important;
+  width:auto!important;
+  min-width:180px!important;
+  max-width:none!important;
+  min-height:46px!important;
+  margin:0!important;
+  padding:0 20px!important;
+  border:1px solid #ff6b00!important;
+  border-radius:10px!important;
+  background:#ff6b00!important;
+  background-color:#ff6b00!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  text-decoration:none!important;
+  font-size:12px!important;
+  line-height:1!important;
+  font-weight:800!important;
+  white-space:nowrap!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+section.appointments-heading.lms-page-heading > a.appointments-primary-action:hover{
+  border-color:#e85f00!important;
+  background:#e85f00!important;
+  background-color:#e85f00!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  transform:translateY(-1px)!important;
+}
+
+/* Keep the training sessions card visually attached to the hero */
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+section.appointments-card{
+  width:100%!important;
+  margin:0!important;
+  border:1px solid #d8e2ef!important;
+  border-radius:18px!important;
+  background:#fff!important;
+  box-shadow:none!important;
+}
+
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+section.appointments-card .appointments-card-head{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:22px!important;
+  padding:22px 25px!important;
+  border-bottom:1px solid #d8e2ef!important;
+  background:#fff!important;
+}
+
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+section.appointments-card .appointments-card-head h2{
+  margin:0!important;
+  color:#102c55!important;
+  -webkit-text-fill-color:#102c55!important;
+  font-size:23px!important;
+  line-height:1.2!important;
+  letter-spacing:-.025em!important;
+}
+
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+section.appointments-card .appointments-card-head p{
+  margin:6px 0 0!important;
+  color:#63748c!important;
+  -webkit-text-fill-color:#63748c!important;
+  font-size:12px!important;
+  line-height:1.55!important;
+}
+
+/* list background + spacing */
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+#appointmentsList.appointments-list{
+  display:grid!important;
+  gap:12px!important;
+  padding:16px!important;
+  background:#f4f7fb!important;
+}
+
+/* Actual rendered appointment cards shown in screenshot */
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+#appointmentsList > *:not(.appointments-loading){
+  box-sizing:border-box!important;
+  border-color:#d8e2ef!important;
+  box-shadow:none!important;
+}
+
+/* Make appointment rows less washed-out */
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+#appointmentsList h3,
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+#appointmentsList h4{
+  color:#24467f!important;
+  -webkit-text-fill-color:#24467f!important;
+}
+
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+#appointmentsList p,
+html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+#appointmentsList span{
+  opacity:1;
+}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  html body.lms-reference-redesign .lms-app .lms-main > .lms-content.appointments-page{
+    width:calc(100% - 32px)!important;
+    padding:22px 0 40px!important;
+  }
+
+  html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+  section.appointments-heading.lms-page-heading{
+    grid-template-columns:1fr!important;
+    min-height:0!important;
+    padding:28px!important;
+  }
+
+  html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+  section.appointments-heading.lms-page-heading > a.appointments-primary-action{
+    width:max-content!important;
+  }
+}
+
+@media(max-width:620px){
+  html body.lms-reference-redesign .lms-app .lms-main > .lms-content.appointments-page{
+    width:100%!important;
+    padding:14px 13px 34px!important;
+  }
+
+  html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+  section.appointments-heading.lms-page-heading{
+    gap:20px!important;
+    padding:24px 19px!important;
+    border-radius:15px!important;
+  }
+
+  html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+  section.appointments-heading.lms-page-heading h1.lms-page-title{
+    font-size:35px!important;
+  }
+
+  html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+  section.appointments-heading.lms-page-heading p.appointments-lead{
+    font-size:13px!important;
+  }
+
+  html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+  section.appointments-heading.lms-page-heading > a.appointments-primary-action{
+    width:100%!important;
+  }
+
+  html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+  section.appointments-card .appointments-card-head{
+    padding:18px!important;
+  }
+
+  html body.lms-reference-redesign .lms-app .lms-main .lms-content.appointments-page
+  #appointmentsList.appointments-list{
+    padding:11px!important;
+    gap:10px!important;
+  }
+}

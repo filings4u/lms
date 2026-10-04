@@ -1,0 +1,20 @@
+/* Screenings4u Learning Center — page-specific 2026 redesign */
+:root{--page-blue:#24467f;--page-blue-deep:#17335f;--page-blue-soft:#edf3fb;--page-orange:#ff6b00;--page-orange-dark:#e65f00;--page-bg:#f4f7fc;--page-card:#fff;--page-text:#1d2d45;--page-muted:#667892;--page-line:#d9e3f0;--page-shadow:0 12px 32px rgba(36,70,127,.08)}
+body.page-redesign{background:var(--page-bg)!important;color:var(--page-text)!important}
+body.page-redesign .lms-main{background:var(--page-bg)!important}
+body.page-redesign .lms-content{width:min(1280px,calc(100% - 56px))!important;max-width:1280px!important;margin:0 auto!important;padding:30px 0 56px!important}
+body.page-redesign h1,body.page-redesign h2,body.page-redesign h3{color:var(--page-blue-deep)}
+body.page-redesign .lms-page-title{font-size:clamp(30px,3vw,42px)!important;line-height:1.05!important;letter-spacing:-.035em!important;color:var(--page-blue-deep)!important}
+body.page-redesign .lms-page-description{max-width:760px;color:var(--page-muted)!important;line-height:1.65}
+body.page-redesign .lms-widget,body.page-redesign .lms-section,body.page-redesign [class*="-panel"],body.page-redesign [class*="-card"]{border-color:var(--page-line)!important}
+body.page-redesign .lms-widget,body.page-redesign .lms-section{border-radius:16px!important;background:var(--page-card)!important;box-shadow:none!important}
+body.page-redesign button,body.page-redesign .lms-button-primary,body.page-redesign .lms-primary-button{border-radius:9px}
+body.page-redesign .lms-button-primary,body.page-redesign .lms-primary-button{background:var(--page-orange)!important;border-color:var(--page-orange)!important;color:#fff!important}
+body.page-redesign .lms-button-primary:hover,body.page-redesign .lms-primary-button:hover{background:var(--page-orange-dark)!important;border-color:var(--page-orange-dark)!important}
+body.page-redesign input,body.page-redesign select,body.page-redesign textarea{border-color:var(--page-line)!important;border-radius:9px!important;background:#fff!important}
+body.page-redesign input:focus,body.page-redesign select:focus,body.page-redesign textarea:focus{border-color:var(--page-blue)!important;box-shadow:0 0 0 3px rgba(36,70,127,.10)!important;outline:0}
+body.page-redesign .page-redesign-accent{height:4px;width:54px;border-radius:999px;background:var(--page-orange);margin:10px 0 0}
+@media(max-width:859px){body.page-redesign .lms-content{width:calc(100% - 28px)!important;padding:22px 0 38px!important}}
+
+/* lms-progress */
+.progress-grid,.progress-layout{gap:18px!important}.progress-main-card{background:linear-gradient(135deg,var(--page-blue-deep),var(--page-blue))!important;border-radius:20px!important}.progress-stat-card,.progress-panel{border-radius:16px!important;box-shadow:none!important}.progress-ring-value{stroke:var(--page-orange)!important}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Knowledge Check | screenings4u Learning Center</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+<meta content="#24467f" name="theme-color"/>
+<link href="assets/css/lms-quiz.css" rel="stylesheet"/></head>
+<body class="lms-reference-redesign s4u-lms-redesign">
+
+<main class="lms-main">
+<div class="lms-content quiz-page">
+<nav aria-label="Breadcrumb" class="quiz-breadcrumb"><a href="lms-my-courses.html">My Learning</a><svg viewbox="0 0 24 24"><path d="m9 18 6-6-6-6"></path></svg><a href="lms-course-player.html" id="coursePlayerLink">Course Player</a><svg viewbox="0 0 24 24"><path d="m9 18 6-6-6-6"></path></svg><span id="breadcrumbTitle">Knowledge Check</span></nav>
+<div class="quiz-layout">
+<section class="quiz-card" id="quizCard">
+<div class="quiz-header"><div class="quiz-kicker"><i></i><span id="quizType">Module Knowledge Check</span></div><h1 id="quizTitle">Module Quiz</h1><p id="quizDescription">Complete this knowledge check before continuing to the next course module.</p></div>
+<div class="quiz-progress"><div class="quiz-progress-row"><span id="progressLabel">Question 1 of 5</span><strong id="progressPercent">20%</strong></div><div class="quiz-track"><div class="quiz-fill" id="quizFill"></div></div></div>
+<div class="quiz-question" id="questionPanel"></div>
+</section>
+<aside>
+<section class="quiz-side"><div class="side-section"><h3 id="sideTitle">Module Quiz</h3><p id="sideDescription">Your answers are saved while you move between questions.</p></div><div class="side-section"><div class="side-stat"><span>Questions</span><strong id="questionCount">5</strong></div><div class="side-stat"><span id="passingLabel">Required Score</span><strong id="passingScore">80%</strong></div><div class="side-stat"><span>Attempts</span><strong id="attempts">—</strong></div></div><div class="side-section"><h3>Questions</h3><div class="question-list" id="questionList"></div></div></section>
+<section class="quiz-side" style="margin-top:18px"><div class="side-section"><h3>Need to review?</h3><p>You can return to the course content before submitting your answers.</p><div class="hint-box"><strong>Remember</strong>Module quizzes check your understanding before you continue. The final assessment is completed after the entire course.</div></div></section>
+</aside>
+</div>
+</div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/lms-quiz.js"></script></body></html>
