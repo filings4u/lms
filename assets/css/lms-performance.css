@@ -1,0 +1,4 @@
+
+/* Fast perceived rendering: shell and cached content paint immediately. */
+#trainingPortalApp{min-height:100vh}
+.loading-msg,.scheduler-loading{min-height:32px}
