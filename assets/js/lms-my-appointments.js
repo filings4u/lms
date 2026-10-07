@@ -215,7 +215,7 @@
     const title = displayTitle(a);
     const host = a.host_name ? `<span>Instructor: ${esc(a.host_name)}</span>` : "";
     const tracking = a.tracking_number ? `<span>Tracking: ${esc(a.tracking_number)}</span>` : "";
-    const provider = a.meeting_provider === "microsoft_teams" ? `<span class="appointment-provider">Microsoft Teams</span>` : "";
+    const provider = a.meeting_provider === "microsoft_teams" ? `<span class="appointment-provider">Learning Center Live Training</span>` : "";
     const status = statusLabel(a);
     const classes = `appointment-card${upcoming ? "" : " is-past"}${norm(a.status) === "cancelled" ? " is-cancelled" : ""}`;
     const rescheduleUrl = `lms-reschedule-appointment.html?appointment=${encodeURIComponent(a.id)}`;
@@ -224,10 +224,10 @@
       <div class="appointment-body">
         <div class="appointment-top"><div>${provider}${title ? `<h3 class="appointment-title">${esc(title)}</h3>` : ""}</div>${status ? `<span class="badge ${statusClass(status)}">${esc(status)}</span>` : ""}</div>
         <div class="appointment-meta"><span>${esc(fmtDate(a.start_at))}</span><span>${esc(fmtTime(a.start_at))}${a.end_at ? ` – ${esc(fmtTime(a.end_at))}` : ""}</span>${host}${tracking}</div>
-        ${upcoming && !joinWindow && hasLiveMeeting ? `<span class="appointment-note">Live Training opens 30 minutes before the scheduled start time.</span>` : ""}
+        ${upcoming && !joinWindow && hasLiveMeeting ? `<span class="appointment-note">Your live training room opens inside the Learning Center 30 minutes before the scheduled start time.</span>` : ""}
       </div>
       <div class="appointment-actions">
-        ${hasLiveMeeting ? `<a class="btn ${joinWindow ? "primary" : "ghost"}" href="lms-live-training.html?appointment=${encodeURIComponent(a.id)}">${joinWindow ? "Enter Live Training" : "View Live Training"}</a>` : ""}
+        ${hasLiveMeeting ? `<a class="btn ${joinWindow ? "primary" : "ghost"}" href="lms-live-training.html?appointment=${encodeURIComponent(a.id)}">${joinWindow ? "Enter Live Training" : "Live Training Details"}</a>` : ""}
         ${canReschedule ? `<a class="btn ghost" href="${rescheduleUrl}">Reschedule</a>` : ""}
         ${canCancel ? `<button class="btn danger" type="button" data-cancel-id="${esc(a.id)}">Cancel</button>` : ""}
       </div>
