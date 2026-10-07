@@ -3338,3 +3338,222 @@ body.s4u-lms-redesign th { background: #f8fafd; color: var(--u-navy-deep); }
   ) { border-radius: 15px !important; }
   body.s4u-lms-redesign .lms-search-shortcut { display: none !important; }
 }
+
+
+/* Portal-shell integration */
+body[data-portal-page="appointments"] .schedule-portal-content{
+  padding-top:24px;
+}
+body[data-portal-page="appointments"] .schedule-page{
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:0;
+}
+body[data-portal-page="appointments"] .schedule-breadcrumb{
+  margin:0 0 18px;
+}
+body[data-portal-page="appointments"] .schedule-hero{
+  margin-top:0;
+}
+@media(max-width:900px){
+  body[data-portal-page="appointments"] .schedule-portal-content{
+    padding-top:16px;
+  }
+}
+
+
+/* === Final LMS portal match: schedule page === */
+body[data-portal-page="appointments"] .schedule-portal-content{
+  max-width:1540px;
+  margin:0 auto;
+  padding:24px!important;
+}
+body[data-portal-page="appointments"] .lms-content.schedule-page{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+}
+body[data-portal-page="appointments"] .schedule-breadcrumb{
+  display:none!important;
+}
+
+/* Hero now matches the normal LMS portal scale */
+body[data-portal-page="appointments"] .scheduler .schedule-hero{
+  min-height:0!important;
+  grid-template-columns:minmax(0,1fr) 240px!important;
+  gap:20px!important;
+  padding:24px 26px!important;
+  border-radius:16px!important;
+  background:linear-gradient(120deg,#0f315b,#184f80 70%,#24467f)!important;
+  box-shadow:0 8px 24px rgba(17,48,85,.08)!important;
+}
+body[data-portal-page="appointments"] .scheduler .schedule-kicker{
+  font-size:.59375rem!important;
+  letter-spacing:.12em!important;
+}
+body[data-portal-page="appointments"] .scheduler .schedule-hero h1{
+  margin:7px 0!important;
+  font-size:1.8125rem!important;
+  line-height:1.1!important;
+  letter-spacing:-.025em!important;
+  font-weight:850!important;
+}
+body[data-portal-page="appointments"] .scheduler .schedule-hero-copy>p{
+  max-width:840px!important;
+  margin:0!important;
+  font-size:.78125rem!important;
+  line-height:1.6!important;
+}
+body[data-portal-page="appointments"] .scheduler .schedule-hero-meta{
+  gap:8px 15px!important;
+  margin-top:14px!important;
+}
+body[data-portal-page="appointments"] .scheduler .schedule-hero-meta span{
+  font-size:.65625rem!important;
+}
+body[data-portal-page="appointments"] .scheduler .schedule-hero-action{
+  padding:15px!important;
+  border-radius:12px!important;
+}
+body[data-portal-page="appointments"] .scheduler .schedule-hero-icon{
+  width:36px!important;
+  height:36px!important;
+  margin-bottom:10px!important;
+  border-radius:9px!important;
+}
+body[data-portal-page="appointments"] .scheduler .schedule-hero-action strong{
+  font-size:.8125rem!important;
+}
+body[data-portal-page="appointments"] .scheduler .schedule-hero-action>span{
+  margin-top:4px!important;
+  font-size:.625rem!important;
+  line-height:1.45!important;
+}
+body[data-portal-page="appointments"] .scheduler .hero-btn{
+  min-height:34px!important;
+  margin-top:10px!important;
+  font-size:.625rem!important;
+}
+
+/* Progress bar matches the portal card scale */
+body[data-portal-page="appointments"] .scheduler .steps{
+  gap:8px!important;
+  margin:14px 0 16px!important;
+  padding:8px!important;
+  border-radius:12px!important;
+}
+body[data-portal-page="appointments"] .scheduler .steps span{
+  min-height:48px!important;
+  padding:7px 9px!important;
+}
+body[data-portal-page="appointments"] .scheduler .steps i{
+  width:29px!important;
+  height:29px!important;
+  font-size:.625rem!important;
+}
+body[data-portal-page="appointments"] .scheduler .steps b{
+  font-size:.6875rem!important;
+}
+body[data-portal-page="appointments"] .scheduler .steps small{
+  font-size:.5625rem!important;
+}
+
+/* Main booking panel */
+body[data-portal-page="appointments"] .scheduler .booking-card,
+body[data-portal-page="appointments"] .scheduler .appointments-panel{
+  border-radius:13px!important;
+  box-shadow:0 5px 20px rgba(24,54,83,.035)!important;
+}
+body[data-portal-page="appointments"] .scheduler .booking-card{
+  padding:20px!important;
+}
+body[data-portal-page="appointments"] .scheduler .section-eyebrow{
+  font-size:.5625rem!important;
+}
+body[data-portal-page="appointments"] .scheduler .booking-section-head h2,
+body[data-portal-page="appointments"] .scheduler .list-head h2{
+  margin:5px 0!important;
+  font-size:1rem!important;
+  line-height:1.25!important;
+}
+body[data-portal-page="appointments"] .scheduler .section-copy,
+body[data-portal-page="appointments"] .scheduler .list-head p{
+  font-size:.65625rem!important;
+  line-height:1.55!important;
+}
+body[data-portal-page="appointments"] .scheduler .booking-section-mark{
+  width:40px!important;
+  height:40px!important;
+}
+
+/* Appointment type cards */
+body[data-portal-page="appointments"] .scheduler .service-grid{
+  gap:10px!important;
+  margin-top:16px!important;
+}
+body[data-portal-page="appointments"] .scheduler button.service{
+  min-height:0!important;
+  padding:16px 18px!important;
+  border-radius:11px!important;
+}
+body[data-portal-page="appointments"] .scheduler button.service .eyebrow{
+  font-size:.5625rem!important;
+}
+body[data-portal-page="appointments"] .scheduler button.service h3{
+  margin:6px 0!important;
+  font-size:.875rem!important;
+}
+body[data-portal-page="appointments"] .scheduler button.service p{
+  font-size:.65625rem!important;
+  line-height:1.5!important;
+}
+body[data-portal-page="appointments"] .scheduler button.service .meta{
+  margin-top:12px!important;
+  font-size:.5625rem!important;
+}
+
+/* Informational cards */
+body[data-portal-page="appointments"] .schedule-info-grid{
+  gap:11px!important;
+  margin-top:14px!important;
+}
+body[data-portal-page="appointments"] .schedule-info-grid article{
+  padding:14px!important;
+  border-radius:12px!important;
+}
+body[data-portal-page="appointments"] .schedule-info-grid strong{
+  font-size:.6875rem!important;
+}
+body[data-portal-page="appointments"] .schedule-info-grid article div>span{
+  font-size:.59375rem!important;
+  line-height:1.5!important;
+}
+
+/* Loading/error messages should be clear and compact */
+body[data-portal-page="appointments"] .scheduler-loading,
+body[data-portal-page="appointments"] .scheduler-message{
+  font-size:.6875rem!important;
+}
+body[data-portal-page="appointments"] .scheduler-message:not([hidden]){
+  display:block;
+  margin:0 0 12px;
+  padding:11px 13px;
+  border:1px solid #efc9c9;
+  border-radius:9px;
+  background:#fff0f0;
+  color:#a53d3d;
+}
+
+@media(max-width:900px){
+  body[data-portal-page="appointments"] .schedule-portal-content{
+    padding:16px!important;
+  }
+  body[data-portal-page="appointments"] .scheduler .schedule-hero{
+    grid-template-columns:1fr!important;
+    padding:20px!important;
+  }
+  body[data-portal-page="appointments"] .scheduler .schedule-hero h1{
+    font-size:1.5rem!important;
+  }
+}

@@ -9,11 +9,74 @@
 <meta content="#24467f" name="theme-color"/>
 <title>Schedule Appointment | screenings4u Learning Center</title>
 <link href="images/fav.png" rel="icon" type="image/png"/>
-<link href="assets/css/lms-schedule-appointment.css" rel="stylesheet"/>
+<link href="assets/css/lms-portal.css?v=20261004-training1" rel="stylesheet"/>
+<link href="assets/css/lms-schedule-appointment.css?v=20261007-portal-shell1" rel="stylesheet"/>
 <link href="assets/css/lms-mobile.css?v=20261004-mobile1" rel="stylesheet"/></head>
-<body class="lms-reference-redesign schedule-redesign s4u-lms-redesign" data-scheduling-view="book">
-<main class="lms-main">
-<div class="lms-content schedule-page">
+<body data-portal-page="appointments" class="schedule-redesign">
+<div class="app">
+  <aside class="side" id="side">
+    <div class="brand"><img src="images/training-logo.png" alt="screenings4u Learning Center"></div>
+    <nav class="nav">
+      <div class="nav-title">SCREENINGS4U LEARNING CENTER</div>
+      <a href="lms-dashboard.html"><span class="ico">⌂</span><span>Dashboard</span></a><a href="lms-my-courses.html"><span class="ico">▶</span><span>My Courses</span></a><a href="lms-courses.html"><span class="ico">▦</span><span>Course Library</span></a><a href="lms-progress.html"><span class="ico">◉</span><span>Progress</span></a><a href="lms-certificates.html"><span class="ico">✓</span><span>Certificates</span></a><a href="lms-live-training.html"><span class="ico">●</span><span>Live Training</span></a><a href="lms-my-appointments.html" class="active" aria-current="page"><span class="ico">◷</span><span>Appointments</span></a><a href="lms-group-seats.html"><span class="ico">♙</span><span>Group Seats</span></a><a href="lms-documents.html"><span class="ico">▤</span><span>Documents</span></a><a href="lms-orders.html"><span class="ico">≡</span><span>Orders</span></a><a href="lms-notifications.html"><span class="ico">✉</span><span>Notifications</span></a><a href="lms-account.html"><span class="ico">○</span><span>Account</span></a><a href="lms-support.html"><span class="ico">?</span><span>Support</span></a>
+    </nav>
+    <div class="side-foot">
+      <div style="font-size:.5625rem;color:#9fb3c7">Portal</div>
+      <div style="font-size:.6875rem;font-weight:800;color:#fff;margin-top:3px">lms.screenings4u.com</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="top">
+      <div class="top-left">
+        <button class="menu" id="menu" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileNav">
+          <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <div class="top-context">
+          <span class="top-eyebrow">SCREENINGS4U LEARNING CENTER</span>
+          <span class="crumb">Appointments / Schedule</span>
+        </div>
+      </div>
+
+      <div class="top-right">
+        <div class="top-utility-group top-time-group">
+          <div class="portal-clock" aria-label="Current date and time">
+            <span id="portalClockDate" class="portal-clock-date"></span>
+            <strong id="portalClockTime" class="portal-clock-time"></strong>
+          </div>
+        </div>
+        <div class="top-utility-group top-accessibility-group">
+          <span class="top-utility-label">Text size</span>
+          <div class="font-sizer" role="group" aria-label="Page font size">
+            <button type="button" id="fontDown" aria-label="Decrease font size">A−</button>
+            <button type="button" class="font-reset" id="fontSizeValue" aria-label="Reset font size">Default</button>
+            <button type="button" id="fontUp" aria-label="Increase font size">A+</button>
+          </div>
+        </div>
+        <div class="top-utility-group top-action-group">
+          <span class="pill">LEARNER</span>
+          <a class="top-support" href="lms-support.html">Support</a>
+          <button class="signout" id="logout" type="button">Sign out</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="mobile-nav" id="mobileNav" aria-hidden="true" aria-label="Portal navigation">
+      <div class="mobile-nav-inner">
+        <div class="mobile-nav-head">
+          <div><span>Portal navigation</span><strong>SCREENINGS4U LEARNING CENTER</strong></div>
+          <span class="mobile-nav-current">Appointments / Schedule</span>
+        </div>
+        <nav class="mobile-nav-links"><a href="lms-dashboard.html"><span class="ico">⌂</span><span>Dashboard</span></a><a href="lms-my-courses.html"><span class="ico">▶</span><span>My Courses</span></a><a href="lms-courses.html"><span class="ico">▦</span><span>Course Library</span></a><a href="lms-progress.html"><span class="ico">◉</span><span>Progress</span></a><a href="lms-certificates.html"><span class="ico">✓</span><span>Certificates</span></a><a href="lms-live-training.html"><span class="ico">●</span><span>Live Training</span></a><a href="lms-my-appointments.html" class="active" aria-current="page"><span class="ico">◷</span><span>Appointments</span></a><a href="lms-group-seats.html"><span class="ico">♙</span><span>Group Seats</span></a><a href="lms-documents.html"><span class="ico">▤</span><span>Documents</span></a><a href="lms-orders.html"><span class="ico">≡</span><span>Orders</span></a><a href="lms-notifications.html"><span class="ico">✉</span><span>Notifications</span></a><a href="lms-account.html"><span class="ico">○</span><span>Account</span></a><a href="lms-support.html"><span class="ico">?</span><span>Support</span></a></nav>
+        <div class="mobile-nav-foot">
+          <span>lms.screenings4u.com</span>
+          <small>Select a page to close this menu.</small>
+        </div>
+      </div>
+    </section>
+
+    <div class="content schedule-portal-content">
+      <div class="lms-content schedule-page">
 <nav aria-label="Breadcrumb" class="schedule-breadcrumb">
 <a href="lms-dashboard.html">Home</a>
 <svg aria-hidden="true" viewbox="0 0 24 24"><path d="m9 18 6-6-6-6"></path></svg>
@@ -261,7 +324,11 @@
 </dialog>
 </div>
 </div>
-</main>
+    </div>
+  </main>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/js/lms-schedule-appointment.js?v=20261007-close-nav-fix1"></script></body>
+<script src="assets/js/lms-schedule-appointment.js?v=20261007-portal-fix2"></script>
+<script src="assets/js/lms-schedule-shell.js?v=20261007-2"></script>
+</body>
 </html>
