@@ -1557,6 +1557,25 @@
 
   
 
+
+  function closeMobileNavigation() {
+    var mobileNav = document.querySelector(".mobile-nav");
+    if (mobileNav) {
+      mobileNav.classList.remove("open");
+      mobileNav.setAttribute("aria-hidden", "true");
+    }
+
+    document.body.classList.remove("mobile-nav-open");
+
+    document
+      .querySelectorAll(
+        '[aria-controls="mobileNav"], [aria-controls="mobile-nav"], [data-mobile-nav-toggle], .mobile-menu-toggle'
+      )
+      .forEach(function (button) {
+        button.setAttribute("aria-expanded", "false");
+      });
+  }
+
   function initializeNotificationBellNavigation() {
     document
       .querySelectorAll('.lms-icon-button[aria-label="Notifications"]')
