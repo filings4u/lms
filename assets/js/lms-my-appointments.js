@@ -238,14 +238,14 @@
     const id = event.currentTarget.dataset.cancelId;
     const appt = state.appointments.find(a => String(a.id) === String(id));
     if (!appt) return;
-    if (!window.confirm("Cancel this appointment?")) return;
+    if (!await window.LMSDialog.confirm("Cancel this appointment?", {title:"Cancel Appointment", confirmText:"Cancel Appointment", type:"warning"})) return;
     const button = event.currentTarget;
     button.disabled = true;
     try {
       await invoke({action:"cancel", appointment_id:id, reason:"Cancelled by learner"});
       await loadData();
     } catch (error) {
-      window.alert(error?.message || "Unable to cancel appointment.");
+      await window.LMSDialog.alert(error?.message || "Unable to cancel appointment.", {title:"Unable to Cancel Appointment", type:"error"});
     } finally {
       button.disabled = false;
     }

@@ -69,7 +69,7 @@
     finally{if(button)button.disabled=false}
   }
   async function revokeSeat(e){
-    const btn=e.currentTarget;if(!confirm("Revoke this learner seat?"))return;btn.disabled=true;
+    const btn=e.currentTarget;if(!await window.LMSDialog.confirm("Revoke this learner seat?",{title:"Revoke Learner Seat",confirmText:"Revoke Seat",type:"warning"}))return;btn.disabled=true;
     try{await call({action:"revoke",purchase_id:btn.dataset.purchase,assignment_id:btn.dataset.revoke});await load();showMessage("Learner seat revoked.");}
     catch(err){showMessage(err?.message||"Unable to revoke learner seat.",true);btn.disabled=false}
   }
