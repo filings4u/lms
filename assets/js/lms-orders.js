@@ -97,10 +97,10 @@
               <div class="top-utility-group top-action-group"><span class="pill">LEARNER</span><a class="top-support" href="lms-support.html">Support</a><button class="signout" id="logout" type="button">Sign out</button></div>
             </div>
           </header>
-          <section class="mobile-nav" id="mobileNav" aria-hidden="true" aria-label="Portal navigation"><div class="mobile-nav-inner"><div class="mobile-nav-head"><div><span>Portal navigation</span><strong>Learning Center</strong></div><button type="button" id="mobileClose" aria-label="Close navigation">×</button></div><nav>${links}</nav></div></section>
-          <div class="content-wrap">
-            <section class="hero"><div><span class="hero-kicker">SCREENINGS4U LEARNING CENTER</span><h1>Orders</h1><p>Review your Learning Center purchases and training order history.</p></div></section>
-            <div id="content"></div>
+          <section class="mobile-nav" id="mobileNav" aria-hidden="true" aria-label="Portal navigation"><div class="mobile-nav-inner"><div class="mobile-nav-head"><div><span>Portal navigation</span><strong>SCREENINGS4U LEARNING CENTER</strong></div><span class="mobile-nav-current">Orders</span></div><nav class="mobile-nav-links">${links}</nav><div class="mobile-nav-foot"><span>lms.screenings4u.com</span><small>Select a page to close this menu.</small></div></div></section>
+          <div class="content">
+            <section class="hero"><span class="hero-kicker">SCREENINGS4U LEARNING CENTER</span><h1>Orders</h1><p>Review your Learning Center purchases and training order history.</p></section>
+            <section class="section" id="content"></section>
           </div>
         </main>
       </div>`;
@@ -184,7 +184,31 @@
   }
 
   function renderFilters(){
-    return `<div class="panel orders-history-panel"><div class="panel-head"><div><h2>Purchase History</h2><p>Training orders associated with this learner account.</p></div></div><div class="orders-filter-grid"><label><span class="orders-filter-label">Search</span><input id="orderSearch" type="search" placeholder="Order number or course"></label><label><span class="orders-filter-label">Status</span><select id="orderStatus"><option value="all">All orders</option><option value="paid">Paid / Completed</option><option value="pending">Pending</option><option value="cancelled">Cancelled</option><option value="refunded">Refunded</option></select></label></div></div>`;
+    return `<div class="panel orders-history-panel">
+      <div class="panel-head">
+        <div>
+          <h2>Purchase History</h2>
+          <p>Training orders associated with this learner account.</p>
+        </div>
+        <span class="badge">${esc(allOrders.length)} ${allOrders.length === 1 ? "order" : "orders"}</span>
+      </div>
+      <div class="orders-filter-grid">
+        <label>
+          <span class="orders-filter-label">Search</span>
+          <input id="orderSearch" type="search" placeholder="Order number or course">
+        </label>
+        <label>
+          <span class="orders-filter-label">Status</span>
+          <select id="orderStatus">
+            <option value="all">All orders</option>
+            <option value="paid">Paid / Completed</option>
+            <option value="pending">Pending</option>
+            <option value="cancelled">Cancelled</option>
+            <option value="refunded">Refunded</option>
+          </select>
+        </label>
+      </div>
+    </div>`;
   }
 
   function renderOrders(){
@@ -207,53 +231,125 @@
       return matchesSearch && matchesStatus;
     });
 
-    const cards = filtered.map(order => {
+    const rows = filtered.map(order => {
       const [statusLabel, kind] = normalizedStatus(order);
-      const orderNo = order.order_number || "";
-      const method = order.payment_method ? titleCase(order.payment_method) : order.payment_provider ? titleCase(order.payment_provider) : "";
-      const items = (order.order_items || []).map(item => {
-        const name = itemName(item);
-        if (!name) return "";
-        const detail = itemDetail(item);
-        const qty = Number(item.quantity || 1);
-        return `<div class="order-item-line"><div><strong>${esc(name)}</strong>${detail ? `<span>${esc(detail)}</span>` : ""}</div><div class="order-item-meta">${qty > 1 ? `<span>Qty ${esc(qty)}</span>` : ""}<strong>${esc(money(item.line_total ?? (Number(item.unit_price || 0) * qty), order.currency))}</strong></div></div>`;
-      }).filter(Boolean).join("");
-
-      const paymentLabel = order.payment_status ? titleCase(order.payment_status) : "";
-      return `<article class="order-card">
-        <div class="order-card-head">
-          <div class="order-card-title"><strong>${esc(orderNo)}</strong><span>${esc(fmtDateTime(order.created_at))}</span></div>
-          <div class="order-card-head-right">${badge(statusLabel, kind)}<strong class="order-total">${esc(money(order.total, order.currency))}</strong></div>
-        </div>
-        ${items ? `<div class="order-items">${items}</div>` : ""}
-        <div class="order-card-foot">
-          <div class="order-facts">
-            ${method ? `<span><b>Method</b>${esc(method)}</span>` : ""}
-            ${paymentLabel ? `<span><b>Payment</b>${esc(paymentLabel)}</span>` : ""}
-            ${order.fulfillment_status ? `<span><b>Fulfillment</b>${esc(titleCase(order.fulfillment_status))}</span>` : ""}
-          </div>
-        </div>
-      </article>`;
+      const orderNo = order.order_number || "—";
+      const method = order.payment_method ? titleCase(order.payment_method) : order.payment_provider ? titleCase(order.payment_provider) : "—";
+      const names = (order.order_items || []).map(itemName).filter(Boolean);
+      const itemSummary = names.length ? names.join(", ") : "Training purchase";
+      return `<tr>
+        <td><strong>${esc(orderNo)}</strong><small>${esc(fmtDateTime(order.created_at))}</small></td>
+        <td><strong>${esc(itemSummary)}</strong><small>${esc((order.order_items || []).length)} line item${(order.order_items || []).length === 1 ? "" : "s"}</small></td>
+        <td>${esc(method)}</td>
+        <td>${badge(statusLabel, kind)}</td>
+        <td><strong>${esc(money(order.total, order.currency))}</strong></td>
+        <td><button class="orders-view-btn" type="button" data-order-id="${esc(order.id || order.order_number || "")}">View</button></td>
+      </tr>`;
     }).join("");
 
     content.innerHTML = `
-      <div class="metrics order-metrics">
+      <div class="metrics">
         ${metric("Training Orders", allOrders.length, "Orders on this account")}
         ${metric("Items Purchased", itemCount, "Courses, seats, and add-ons")}
         ${metric("Order Value", money(orderValue, allOrders[0]?.currency || "usd"), "Recorded order total")}
         ${metric("Latest Order", latestOrder || "—", latestOrder ? "Most recent purchase" : "No order date")}
       </div>
-      <div class="section">${renderFilters()}</div>
-      <div id="orderResults" class="section order-list">${cards || `<div class="panel"><div class="empty">No orders match the current filters.</div></div>`}</div>`;
 
-    document.getElementById("orderSearch")?.addEventListener("input", e => { searchTerm = e.target.value || ""; renderOrders(); });
+      <div class="section">${renderFilters()}</div>
+
+      <div class="section">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>Orders</h2>
+              <p>Open an order to review purchased items, payment, and fulfillment details.</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="orders-table">
+              <thead><tr><th>Order</th><th>Purchase</th><th>Method</th><th>Status</th><th>Total</th><th></th></tr></thead>
+              <tbody>${rows || `<tr><td colspan="6"><div class="empty">No orders match the current filters.</div></td></tr>`}</tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="orderDetailModal" class="modal-backdrop" hidden>
+        <div class="modal orders-modal" role="dialog" aria-modal="true" aria-labelledby="orderDetailTitle">
+          <div class="orders-modal-head">
+            <div><span class="hero-kicker">ORDER DETAILS</span><h2 id="orderDetailTitle">Order</h2></div>
+            <button type="button" class="orders-modal-close" aria-label="Close">×</button>
+          </div>
+          <div id="orderDetailBody"></div>
+        </div>
+      </div>`;
+
+    document.getElementById("orderSearch")?.addEventListener("input", e => {
+      searchTerm = e.target.value || "";
+      renderOrders();
+    });
+
     const status = document.getElementById("orderStatus");
     if (status) {
       status.value = statusFilter;
-      status.addEventListener("change", e => { statusFilter = e.target.value || "all"; renderOrders(); });
+      status.addEventListener("change", e => {
+        statusFilter = e.target.value || "all";
+        renderOrders();
+      });
     }
     const search = document.getElementById("orderSearch");
     if (search) search.value = searchTerm;
+
+    document.querySelectorAll(".orders-view-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        const id = button.dataset.orderId;
+        const order = allOrders.find(o => String(o.id || o.order_number || "") === String(id));
+        if (order) openOrderDetail(order);
+      });
+    });
+
+    document.querySelector(".orders-modal-close")?.addEventListener("click", closeOrderDetail);
+    document.getElementById("orderDetailModal")?.addEventListener("click", e => {
+      if (e.target.id === "orderDetailModal") closeOrderDetail();
+    });
+  }
+
+  function openOrderDetail(order){
+    const modal = document.getElementById("orderDetailModal");
+    const body = document.getElementById("orderDetailBody");
+    const title = document.getElementById("orderDetailTitle");
+    if (!modal || !body || !title) return;
+
+    const [statusLabel, kind] = normalizedStatus(order);
+    title.textContent = order.order_number || "Order";
+    const items = (order.order_items || []).map(item => {
+      const name = itemName(item) || "Training item";
+      const detail = itemDetail(item);
+      const qty = Number(item.quantity || 1);
+      const line = item.line_total ?? (Number(item.unit_price || 0) * qty);
+      return `<div class="orders-detail-item">
+        <div><strong>${esc(name)}</strong>${detail ? `<span>${esc(detail)}</span>` : ""}</div>
+        <div>${qty > 1 ? `<span>Qty ${esc(qty)}</span>` : ""}<strong>${esc(money(line, order.currency))}</strong></div>
+      </div>`;
+    }).join("");
+
+    body.innerHTML = `
+      <div class="orders-detail-summary">
+        <div><span>Status</span>${badge(statusLabel, kind)}</div>
+        <div><span>Order date</span><strong>${esc(fmtDateTime(order.created_at))}</strong></div>
+        <div><span>Payment</span><strong>${esc(titleCase(order.payment_status || "Recorded"))}</strong></div>
+        <div><span>Fulfillment</span><strong>${esc(titleCase(order.fulfillment_status || "Pending"))}</strong></div>
+      </div>
+      <div class="orders-detail-items">${items || `<div class="empty">No line items recorded.</div>`}</div>
+      <div class="orders-detail-total"><span>Total</span><strong>${esc(money(order.total, order.currency))}</strong></div>`;
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeOrderDetail(){
+    const modal = document.getElementById("orderDetailModal");
+    if (modal) modal.hidden = true;
+    document.body.style.overflow = "";
   }
 
   async function init(){
