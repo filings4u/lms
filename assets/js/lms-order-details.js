@@ -1,11 +1,8 @@
 (() => {
   "use strict";
 
-  console.info("[LMS Orders] build 20261004-training6");
-
   const SUPABASE_URL = "https://elpbnytpciqnbexiaebp.supabase.co";
   const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVscGJueXRwY2lxbmJleGlhZWJwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyOTYwMzQsImV4cCI6MjEwNTg3MjAzNH0.kWzPDxpdeorkJJpP6pvt4LCP-W9uGGVAgcQVVheVuE8";
-
   const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     auth: {
       persistSession: true,
@@ -21,9 +18,6 @@
   const FONT_MIN = 12;
   const FONT_MAX = 18;
   const ACTIVE_NAV_INDEX = 9;
-  let allOrders = [];
-  let searchTerm = "";
-  let statusFilter = "all";
 
   const navItems = [
     ["lms-dashboard.html", "Dashboard", "⌂"],
@@ -42,23 +36,20 @@
   ];
 
   const esc = value => String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const titleCase = value => String(value || "").replace(/[_-]+/g, " ").replace(/\b\w/g, m => m.toUpperCase());
   const money = (value, currency = "usd") => {
     const n = Number(value);
     if (!Number.isFinite(n)) return "";
     try { return new Intl.NumberFormat("en-US", {style:"currency", currency:String(currency || "usd").toUpperCase()}).format(n); }
     catch { return `$${n.toFixed(2)}`; }
   };
-  const fmtDate = value => {
-    if (!value) return "";
-    const d = new Date(value);
-    return Number.isNaN(d.getTime()) ? "" : new Intl.DateTimeFormat("en-US", {month:"short", day:"numeric", year:"numeric"}).format(d);
-  };
   const fmtDateTime = value => {
-    if (!value) return "";
+    if (!value) return "—";
     const d = new Date(value);
-    return Number.isNaN(d.getTime()) ? "" : new Intl.DateTimeFormat("en-US", {month:"short", day:"numeric", year:"numeric", hour:"numeric", minute:"2-digit"}).format(d);
+    return Number.isNaN(d.getTime()) ? "—" : new Intl.DateTimeFormat("en-US", {
+      month:"short", day:"numeric", year:"numeric", hour:"numeric", minute:"2-digit"
+    }).format(d);
   };
-  const titleCase = value => String(value || "").replace(/[_-]+/g, " ").replace(/\b\w/g, m => m.toUpperCase());
   const badge = (label, kind="") => `<span class="badge ${kind}">${esc(label)}</span>`;
   const metric = (label, value, sub) => `<article class="metric"><small>${esc(label)}</small><strong>${esc(value)}</strong>${sub ? `<span>${esc(sub)}</span>` : ""}</article>`;
 
@@ -89,7 +80,7 @@
           <header class="top">
             <div class="top-left">
               <button class="menu" id="menu" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileNav"><span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span></button>
-              <div class="top-context"><span class="top-eyebrow">SCREENINGS4U LEARNING CENTER</span><span class="crumb">Orders</span></div>
+              <div class="top-context"><span class="top-eyebrow">SCREENINGS4U LEARNING CENTER</span><span class="crumb">Orders / Details</span></div>
             </div>
             <div class="top-right">
               <div class="top-utility-group top-time-group"><div class="portal-clock" aria-label="Current date and time"><span id="portalClockDate" class="portal-clock-date"></span><strong id="portalClockTime" class="portal-clock-time"></strong></div></div>
@@ -99,8 +90,9 @@
           </header>
           <section class="mobile-nav" id="mobileNav" aria-hidden="true" aria-label="Portal navigation"><div class="mobile-nav-inner"><div class="mobile-nav-head"><div><span>Portal navigation</span><strong>SCREENINGS4U LEARNING CENTER</strong></div><span class="mobile-nav-current">Orders</span></div><nav class="mobile-nav-links">${links}</nav><div class="mobile-nav-foot"><span>lms.screenings4u.com</span><small>Select a page to close this menu.</small></div></div></section>
           <div class="content">
-            <section class="hero"><span class="hero-kicker">SCREENINGS4U LEARNING CENTER</span><h1>Orders</h1><p>Review your Learning Center purchases and training order history.</p></section>
-            <section class="section" id="content"></section>
+            <a class="order-details-back" href="lms-orders.html">← Back to Orders</a>
+            <section class="hero"><span class="hero-kicker">SCREENINGS4U LEARNING CENTER</span><h1>Order Details</h1><p>Review the purchased items, payment status, and fulfillment information for this order.</p></section>
+            <section class="section" id="content"><div class="panel"><div class="empty">Loading order details…</div></div></section>
           </div>
         </main>
       </div>`;
@@ -114,7 +106,6 @@
 
     const menu = document.getElementById("menu");
     const mobile = document.getElementById("mobileNav");
-    const close = document.getElementById("mobileClose");
     const setMenu = open => {
       mobile?.classList.toggle("open", open);
       document.body.classList.toggle("mobile-nav-open", open);
@@ -122,7 +113,6 @@
       mobile?.setAttribute("aria-hidden", String(!open));
     };
     menu?.addEventListener("click", () => setMenu(!mobile?.classList.contains("open")));
-    close?.addEventListener("click", () => setMenu(false));
     mobile?.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
 
     document.getElementById("logout")?.addEventListener("click", async () => {
@@ -150,7 +140,7 @@
   }
 
   function itemName(item){
-    return item?.lms_training_products?.name || item?.services?.name || item?.metadata?.name || "";
+    return item?.lms_training_products?.name || item?.services?.name || item?.metadata?.name || "Training item";
   }
 
   function itemDetail(item){
@@ -183,113 +173,69 @@
     return ["Recorded", ""];
   }
 
-  function renderFilters(){
-    return `<div class="panel orders-history-panel">
-      <div class="panel-head">
-        <div>
-          <h2>Purchase History</h2>
-          <p>Training orders associated with this learner account.</p>
-        </div>
-        <span class="badge">${esc(allOrders.length)} ${allOrders.length === 1 ? "order" : "orders"}</span>
-      </div>
-      <div class="orders-filter-grid">
-        <label>
-          <span class="orders-filter-label">Search</span>
-          <input id="orderSearch" type="search" placeholder="Order number or course">
-        </label>
-        <label>
-          <span class="orders-filter-label">Status</span>
-          <select id="orderStatus">
-            <option value="all">All orders</option>
-            <option value="paid">Paid / Completed</option>
-            <option value="pending">Pending</option>
-            <option value="cancelled">Cancelled</option>
-            <option value="refunded">Refunded</option>
-          </select>
-        </label>
-      </div>
-    </div>`;
-  }
-
-  function renderOrders(){
+  function renderOrder(order){
     const content = document.getElementById("content");
-    const orderValue = allOrders.reduce((sum,o) => sum + Number(o.total || 0), 0);
-    const itemCount = allOrders.reduce((sum,o) => sum + (Array.isArray(o.order_items) ? o.order_items.reduce((s,i) => s + Number(i.quantity || 1),0) : 0), 0);
-    const latestOrder = allOrders[0]?.created_at ? fmtDate(allOrders[0].created_at) : "";
+    const [statusLabel, kind] = normalizedStatus(order);
+    const items = Array.isArray(order.order_items) ? order.order_items : [];
+    const method = order.payment_method ? titleCase(order.payment_method) : order.payment_provider ? titleCase(order.payment_provider) : "—";
 
-    const term = searchTerm.trim().toLowerCase();
-    const filtered = allOrders.filter(order => {
-      const [statusLabel] = normalizedStatus(order);
-      const haystack = [order.order_number, order.customer_email, ...(order.order_items || []).map(itemName)].filter(Boolean).join(" ").toLowerCase();
-      const matchesSearch = !term || haystack.includes(term);
-      const sl = statusLabel.toLowerCase();
-      const matchesStatus = statusFilter === "all" ||
-        (statusFilter === "paid" && (sl === "paid" || sl === "completed")) ||
-        (statusFilter === "pending" && !["paid","completed","cancelled","refunded"].includes(sl)) ||
-        (statusFilter === "cancelled" && sl === "cancelled") ||
-        (statusFilter === "refunded" && sl === "refunded");
-      return matchesSearch && matchesStatus;
-    });
-
-    const rows = filtered.map(order => {
-      const [statusLabel, kind] = normalizedStatus(order);
-      const orderNo = order.order_number || "—";
-      const method = order.payment_method ? titleCase(order.payment_method) : order.payment_provider ? titleCase(order.payment_provider) : "—";
-      const names = (order.order_items || []).map(itemName).filter(Boolean);
-      const itemSummary = names.length ? names.join(", ") : "Training purchase";
-      return `<tr>
-        <td><strong>${esc(orderNo)}</strong><small>${esc(fmtDateTime(order.created_at))}</small></td>
-        <td><strong>${esc(itemSummary)}</strong><small>${esc((order.order_items || []).length)} line item${(order.order_items || []).length === 1 ? "" : "s"}</small></td>
-        <td>${esc(method)}</td>
-        <td>${badge(statusLabel, kind)}</td>
-        <td><strong>${esc(money(order.total, order.currency))}</strong></td>
-        <td><a class="orders-view-btn" href="lms-order-details.html?order_id=${encodeURIComponent(order.id || order.order_number || "")}">View</a></td>
-      </tr>`;
+    const itemRows = items.map(item => {
+      const qty = Number(item.quantity || 1);
+      const lineTotal = item.line_total ?? (Number(item.unit_price || 0) * qty);
+      const detail = itemDetail(item);
+      return `<div class="order-detail-item">
+        <div>
+          <strong>${esc(itemName(item))}</strong>
+          ${detail ? `<span>${esc(detail)}</span>` : ""}
+        </div>
+        <div class="order-detail-item-side">
+          ${qty > 1 ? `<span>Quantity: ${esc(qty)}</span>` : ""}
+          <strong>${esc(money(lineTotal, order.currency))}</strong>
+        </div>
+      </div>`;
     }).join("");
 
     content.innerHTML = `
-      <div class="metrics">
-        ${metric("Training Orders", allOrders.length, "Orders on this account")}
-        ${metric("Items Purchased", itemCount, "Courses, seats, and add-ons")}
-        ${metric("Order Value", money(orderValue, allOrders[0]?.currency || "usd"), "Recorded order total")}
-        ${metric("Latest Order", latestOrder || "—", latestOrder ? "Most recent purchase" : "No order date")}
+      <div class="order-detail-grid">
+        ${metric("Order Number", order.order_number || "—", "Learning Center order")}
+        ${metric("Order Date", fmtDateTime(order.created_at), "Purchase date")}
+        ${metric("Status", statusLabel, "Current order status")}
+        ${metric("Total", money(order.total, order.currency), "Order total")}
       </div>
-
-      <div class="section">${renderFilters()}</div>
 
       <div class="section">
         <div class="panel">
-          <div class="panel-head">
-            <div>
-              <h2>Orders</h2>
-              <p>Open an order to review purchased items, payment, and fulfillment details.</p>
-            </div>
-          </div>
+          <div class="panel-head"><div><h2>Purchased Items</h2><p>Courses, seats, extensions, supplies, and other items included in this order.</p></div></div>
+          <div class="order-items-list">${itemRows || `<div class="empty">No line items are recorded for this order.</div>`}</div>
+          <div class="order-detail-total"><span>Order Total</span><strong>${esc(money(order.total, order.currency))}</strong></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="panel">
+          <div class="panel-head"><div><h2>Order Information</h2><p>Payment and fulfillment information recorded for this purchase.</p></div></div>
           <div class="table-wrap">
-            <table class="orders-table">
-              <thead><tr><th>Order</th><th>Purchase</th><th>Method</th><th>Status</th><th>Total</th><th></th></tr></thead>
-              <tbody>${rows || `<tr><td colspan="6"><div class="empty">No orders match the current filters.</div></td></tr>`}</tbody>
+            <table class="order-meta-table">
+              <tbody>
+                <tr><td>Payment method</td><td>${esc(method)}</td></tr>
+                <tr><td>Payment status</td><td>${badge(titleCase(order.payment_status || "Recorded"), kind)}</td></tr>
+                <tr><td>Fulfillment status</td><td>${esc(titleCase(order.fulfillment_status || "Pending"))}</td></tr>
+                <tr><td>Order status</td><td>${esc(titleCase(order.status || statusLabel))}</td></tr>
+                ${order.customer_email ? `<tr><td>Email</td><td>${esc(order.customer_email)}</td></tr>` : ""}
+                ${order.paid_at ? `<tr><td>Paid</td><td>${esc(fmtDateTime(order.paid_at))}</td></tr>` : ""}
+              </tbody>
             </table>
           </div>
         </div>
-      </div>
-      `;
+      </div>`;
+  }
 
-    document.getElementById("orderSearch")?.addEventListener("input", e => {
-      searchTerm = e.target.value || "";
-      renderOrders();
-    });
-
-    const status = document.getElementById("orderStatus");
-    if (status) {
-      status.value = statusFilter;
-      status.addEventListener("change", e => {
-        statusFilter = e.target.value || "all";
-        renderOrders();
-      });
-    }
-    const search = document.getElementById("orderSearch");
-    if (search) search.value = searchTerm;
+  function renderMissing(message){
+    document.getElementById("content").innerHTML = `
+      <div class="panel">
+        <div class="panel-head"><div><h2>Order Not Found</h2><p>${esc(message)}</p></div></div>
+        <div style="padding:16px"><a class="orders-view-btn" href="lms-orders.html">Return to Orders</a></div>
+      </div>`;
   }
 
   async function init(){
@@ -301,16 +247,31 @@
     if (error) throw error;
     const session = data?.session;
     if (!session?.user?.id){
-      window.location.replace("https://lms.screenings4u.com/training-login.html?returnTo=%2Flms-orders.html");
+      const returnTo = encodeURIComponent(location.pathname + location.search);
+      window.location.replace("https://lms.screenings4u.com/training-login.html?returnTo=" + returnTo);
+      return;
+    }
+
+    const orderId = new URLSearchParams(location.search).get("order_id");
+    if (!orderId) {
+      renderMissing("No order was selected.");
       return;
     }
 
     try {
-      allOrders = await invokeOrders();
-      renderOrders();
+      const orders = await invokeOrders();
+      const order = orders.find(o =>
+        String(o.id || "") === String(orderId) ||
+        String(o.order_number || "") === String(orderId)
+      );
+      if (!order) {
+        renderMissing("This order is not available on the current learner account.");
+        return;
+      }
+      renderOrder(order);
     } catch (error) {
-      console.error("[LMS Orders]", error);
-      throw error;
+      console.error("[LMS Order Details]", error);
+      renderMissing("The order could not be loaded. Return to Orders and try again.");
     }
   }
 
