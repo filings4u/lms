@@ -116,7 +116,7 @@
 </div>
 <strong>Already booked?</strong>
 <span>View, reschedule, or cancel an existing appointment.</span>
-<button class="btn hero-btn" id="myAppts" type="button">My Appointments</button>
+<a class="btn hero-btn" href="lms-my-appointments.html">My Appointments</a>
 </div>
 </section>
 <div aria-label="Booking progress" class="steps">
@@ -245,7 +245,7 @@
 <p>Your appointment has been added to your screenings4u Learning Center account.</p>
 <div class="review" id="successBox"></div>
 <div class="success-actions">
-<button class="btn primary" id="viewAppointments" type="button">View My Appointments</button>
+<a class="btn primary" href="lms-my-appointments.html">View My Appointments</a>
 <button class="btn" id="another" type="button">Book Another</button>
 </div>
 </div>
@@ -271,20 +271,7 @@
 </article>
 </section>
 </section>
-<section class="card appointments-panel" hidden="" id="listPanel">
-<header class="list-head">
-<div>
-<span class="section-eyebrow">My Appointments</span>
-<h2>Upcoming &amp; Past Appointments</h2>
-<p>Review your scheduling history and manage eligible upcoming appointments.</p>
-</div>
-<button class="btn primary" id="newBook" type="button">
-<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>
-                Schedule Appointment
-              </button>
-</header>
-<div id="appointments"></div>
-</section>
+
 <dialog class="scheduler-dialog" id="resDialog">
 <form method="dialog" onsubmit="return false;">
 <button aria-label="Close reschedule dialog" class="x" id="closeRes" type="button">×</button>
